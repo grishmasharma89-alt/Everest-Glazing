@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKEN FOUNDATION
+   ============================================================
+   All visual decisions are controlled from this single file.
+   To restyle the site: edit the :root variables below.
+   Tailwind utilities automatically pick up changes via @theme.
+
+   HOW TO CHANGE THEME LATER
+   ─────────────────────────
+   Brand color swap → change --primary, --primary-foreground
+   Heading font     → change --font-heading
+   Body font        → change --font-sans
+   Border radius    → change --radius
+   Section spacing  → change --section-spacing-*
+   Container width  → change --container-max
+   ============================================================ */
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", sans-serif;
+  --font-heading: "Inter", "Segoe UI", sans-serif;
+}
+
+@theme inline {
+  /* ── Semantic Colors ── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ── Surface Colors (named backgrounds) ── */
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-darker: var(--surface-darker);
+
+  /* ── Semantic Status Colors ── */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  /* ── Border Radius ── */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-pill: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm: var(--shadow-sm-val);
+  --shadow-md: var(--shadow-md-val);
+  --shadow-lg: var(--shadow-lg-val);
+  --shadow-card: var(--shadow-card-val);
+
+  /* ── Z-Index ── */
+  --z-dropdown: var(--z-dropdown-val);
+  --z-sticky: var(--z-sticky-val);
+  --z-overlay: var(--z-overlay-val);
+  --z-modal: var(--z-modal-val);
+  --z-toast: var(--z-toast-val);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  :root {
+    /* ── Brand / Semantic Colors ── */
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+
+    /* ── Primary Color Scale ── */
+    --primary-300: #A2D6E6;
+    --primary-400: #7BC2DA;
+    --primary-600: #46A1C2;
+    --primary-700: #3A8CA8;
+    --primary-800: #2F6F86;
+    
+    --primary: var(--primary-600);
+    --primary-foreground: oklch(0.985 0 0);
+    
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+
+    /* ── Surface Palette (named backgrounds) ── */
+    --surface: oklch(1 0 0);
+    --surface-raised: oklch(0.985 0 0);
+    --surface-sunken: oklch(0.95 0 0);
+    --surface-dark: oklch(0.13 0 0);
+    --surface-darker: oklch(0.08 0 0);
+
+    /* ── Status Colors ── */
+    --success: oklch(0.72 0.19 145);
+    --success-foreground: oklch(0.985 0 0);
+    --warning: oklch(0.8 0.18 80);
+    --warning-foreground: oklch(0.2 0 0);
+    --info: oklch(0.7 0.15 240);
+    --info-foreground: oklch(0.985 0 0);
+
+    /* ── Border Radius Base ── */
+    --radius: 0.625rem;
+
+    /* ── Typography Scale (clamp: min, preferred, max) ── */
+    --text-display: clamp(3.08rem, 9.5vw, 9rem);
+    --text-h1: clamp(2.2rem, 6.2vw, 5.4rem);
+    --text-h2: clamp(1.9rem, 4.8vw, 4.2rem);
+    --text-h3: clamp(1.5rem, 3vw, 2.6rem);
+    --text-h4: clamp(1.25rem, 2vw, 1.5rem);
+    --text-body-lg: 1.125rem;
+    --text-body: 1rem;
+    --text-body-sm: 0.875rem;
+    --text-caption: 0.75rem;
+    --text-overline: 0.75rem;
+
+    /* ── Font Weights ── */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* ── Line Heights ── */
+    --leading-display: 0.9;
+    --leading-heading: 0.95;
+    --leading-body: 1.6;
+    --leading-snug: 1.35;
+    --leading-tight: 1.15;
+
+    /* ── Letter Spacing ── */
+    --tracking-heading: -0.02em;
+    --tracking-body: 0;
+    --tracking-overline: 0.18em;
+    --tracking-label: 0.12em;
+    --tracking-button: 0.04em;
+    --tracking-wide: 0.1em;
+
+    /* ── Container & Layout ── */
+    --container-max: 1700px;
+    --container-narrow: 1050px;
+    --container-content: 768px;
+    --container-px: clamp(1.25rem, 3vw, 3rem);
+
+    /* ── Section Spacing ── */
+    --section-spacing-sm: clamp(2.5rem, 5vw, 4rem);
+    --section-spacing-md: clamp(4rem, 7vw, 6rem);
+    --section-spacing-lg: clamp(5rem, 9vw, 8rem);
+
+    /* ── Component Heights ── */
+    --height-button-sm: 2.25rem;
+    --height-button: 2.75rem;
+    --height-button-lg: 3rem;
+    --height-input: 2.75rem;
+    --height-header: 4rem;
+
+    /* ── Shadows ── */
+    --shadow-sm-val: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+    --shadow-md-val: 0 4px 6px -1px oklch(0 0 0 / 0.07), 0 2px 4px -2px oklch(0 0 0 / 0.07);
+    --shadow-lg-val: 0 10px 15px -3px oklch(0 0 0 / 0.08), 0 4px 6px -4px oklch(0 0 0 / 0.08);
+    --shadow-card-val: 0 1px 3px 0 oklch(0 0 0 / 0.06), 0 1px 2px -1px oklch(0 0 0 / 0.06);
+
+    /* ── Z-Index Scale ── */
+    --z-dropdown-val: 40;
+    --z-sticky-val: 50;
+    --z-overlay-val: 60;
+    --z-modal-val: 70;
+    --z-toast-val: 80;
+
+    /* ── Transitions ── */
+    --duration-fast: 150ms;
+    --duration-normal: 200ms;
+    --duration-slow: 300ms;
+    --duration-slower: 500ms;
+    --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+    /* ── Opacity Scale (text muting) ── */
+    --opacity-muted: 0.65;
+    --opacity-subtle: 0.55;
+    --opacity-faint: 0.4;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITY CLASSES
+   ============================================================
+   Reusable text patterns used across multiple pages/sections.
+   Usage: apply these classes instead of repeating raw Tailwind.
+   Color is inherited — apply text-foreground/white externally.
+   ============================================================ */
+
+@layer utilities {
+  /* ── Heading Roles ── */
+
+  .type-display {
+    font-size: var(--text-display);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  .type-h1 {
+    font-size: var(--text-h1);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  .type-h2 {
+    font-size: var(--text-h2);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  .type-h3 {
+    font-size: var(--text-h3);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  /* ── Body Roles ── */
+
+  .type-body-lg {
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-body);
+  }
+
+  .type-body {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+  }
+
+  .type-body-sm {
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body);
+  }
+
+  /* ── Label Roles ── */
+
+  .type-overline {
+    font-size: var(--text-overline);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-overline);
+  }
+
+  .type-label {
+    font-size: var(--text-body-sm);
+    font-weight: var(--font-weight-normal);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+  }
+
+  .type-caption {
+    font-size: var(--text-caption);
+    line-height: var(--leading-snug);
+  }
+}
