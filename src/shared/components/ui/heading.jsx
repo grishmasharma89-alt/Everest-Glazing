@@ -35,7 +35,7 @@ export function Heading({
         <p
           className={cn(
             'type-overline',
-            light ? 'text-white/60' : 'text-foreground/[var(--opacity-subtle)]',
+            light ? 'text-primary-300' : 'text-primary',
           )}
         >
           {label}

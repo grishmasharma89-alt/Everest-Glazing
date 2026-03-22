@@ -30,4 +30,5 @@ const variantMap = {
   outline: 'border border-foreground/20 text-foreground/75',
   light: 'border border-white/20 bg-white/10 text-white',
   success: 'border border-green-200 bg-green-50 text-green-800',
+  primary: 'border border-primary-400/30 bg-primary/10 text-primary-700',
 }

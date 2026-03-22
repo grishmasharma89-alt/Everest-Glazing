@@ -15,7 +15,7 @@ export function CTASection({
   secondaryCta,
 }) {
   return (
-    <Section background="black" spacing="lg">
+    <Section background="primary-dark" spacing="lg">
       <Container className="text-center">
         <Heading
           label={label}

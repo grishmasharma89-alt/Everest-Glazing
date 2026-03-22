@@ -37,4 +37,5 @@ const backgroundMap = {
   light: 'bg-surface-sunken',
   dark: 'bg-surface-dark text-white',
   black: 'bg-black text-white',
+  'primary-dark': 'bg-primary-800 text-white',
 }

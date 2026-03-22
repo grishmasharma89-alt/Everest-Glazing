@@ -6,36 +6,12 @@ import { COMPANY } from '@/shared/lib/constants'
 
 export function Header() {
   const { pathname } = useLocation()
-  const [useLightHeader, setUseLightHeader] = useState(false)
   const [isMoreOpen, setIsMoreOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const closeTimerRef = useRef(0)
   const headerShellRef = useRef(null)
   const primaryPhoneHref = `tel:${COMPANY.phone.replace(/\s/g, '')}`
 
-  useEffect(() => {
-    const updateHeaderTheme = () => {
-      if (pathname !== '/') {
-        setUseLightHeader(true)
-        return
-      }
-
-      const heroThreshold = window.innerHeight * 0.72
-      setUseLightHeader(window.scrollY > heroThreshold)
-    }
-
-    updateHeaderTheme()
-    window.addEventListener('scroll', updateHeaderTheme, { passive: true })
-    window.addEventListener('resize', updateHeaderTheme)
-
-    return () => {
-      window.removeEventListener('scroll', updateHeaderTheme)
-      window.removeEventListener('resize', updateHeaderTheme)
-    }
-  }, [pathname])
-
-  const textColorClass = useLightHeader ? 'text-black' : 'text-white'
-  const mutedTextColorClass = useLightHeader ? 'text-black/80' : 'text-white/95'
   const isMoreActive = HEADER_SECONDARY_LINKS.some((link) => pathname.startsWith(link.href))
   const isProjectsAliasRoute = pathname.startsWith('/works')
 
@@ -107,34 +83,27 @@ export function Header() {
   )
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-[var(--z-sticky-val)] px-[var(--container-px)] pt-5 sm:pt-6">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-[var(--z-sticky-val)]">
       <div
         ref={headerShellRef}
         className={cn(
-          'pointer-events-auto rounded-xl px-3 py-2 transition-all duration-[var(--duration-slower)]',
-          textColorClass,
-          useLightHeader && 'border border-black/10 bg-white/78 shadow-[var(--shadow-sm-val)] backdrop-blur-md',
+          'pointer-events-auto w-full border-b border-primary/12 bg-white/95 px-[var(--container-px)] py-3 shadow-[var(--shadow-sm-val)] backdrop-blur-md transition-colors',
         )}
       >
-        <div className="flex items-start justify-between gap-4">
+        <div className="mx-auto flex w-full max-w-[var(--container-max)] items-center justify-between gap-4">
           <NavLink className="leading-[var(--leading-display)] tracking-tight" onClick={handleLogoClick} to="/">
-            <p className="text-[length:var(--text-h4)] font-semibold">Everest</p>
-            <p className="text-[length:var(--text-caption)] uppercase tracking-[var(--tracking-overline)] opacity-80">Double Glazing</p>
+            <p className="text-[length:var(--text-h4)] font-semibold text-foreground">Everest</p>
+            <p className="text-[length:var(--text-caption)] uppercase tracking-[var(--tracking-overline)] text-foreground/[var(--opacity-subtle)]">Double Glazing</p>
           </NavLink>
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-2 lg:flex">
             {HEADER_PRIMARY_LINKS.map((link) => (
               <NavLink
                 className={({ isActive }) =>
                   cn(
-                    'rounded-full px-3 py-1.5 text-[length:var(--text-body-sm)] uppercase tracking-[var(--tracking-wide)] transition',
-                    mutedTextColorClass,
-                    useLightHeader
-                      ? 'hover:bg-black/8 hover:text-black'
-                      : 'hover:bg-white/10 hover:text-white',
+                    'rounded-full px-3 py-1.5 type-overline tracking-[var(--tracking-wide)] text-foreground/[var(--opacity-muted)] transition',
+                    'hover:bg-primary/10 hover:text-primary-700',
                     (isActive || (link.href === '/projects' && isProjectsAliasRoute)) &&
-                      (useLightHeader
-                        ? 'bg-black text-white hover:bg-black hover:text-white'
-                        : 'bg-white text-black hover:bg-white hover:text-black'),
+                      'bg-primary text-white hover:bg-primary hover:text-white',
                   )
                 }
                 key={link.href}
@@ -154,15 +123,9 @@ export function Header() {
             >
               <button
                 className={cn(
-                    'rounded-full px-3 py-1.5 text-[length:var(--text-body-sm)] uppercase tracking-[var(--tracking-wide)] transition',
-                  mutedTextColorClass,
-                  useLightHeader
-                    ? 'hover:bg-black/8 hover:text-black'
-                    : 'hover:bg-white/10 hover:text-white',
-                  isMoreActive &&
-                    (useLightHeader
-                      ? 'bg-black text-white hover:bg-black hover:text-white'
-                      : 'bg-white text-black hover:bg-white hover:text-black'),
+                  'rounded-full px-3 py-1.5 type-overline tracking-[var(--tracking-wide)] text-foreground/[var(--opacity-muted)] transition',
+                  'hover:bg-primary/10 hover:text-primary-700',
+                  isMoreActive && 'bg-primary text-white hover:bg-primary hover:text-white',
                 )}
                 onClick={() => setIsMoreOpen((previous) => !previous)}
                 type="button"
@@ -171,22 +134,17 @@ export function Header() {
               </button>
               <div
                 className={cn(
-                  'absolute right-0 top-full min-w-52 rounded-xl border p-2 shadow-[var(--shadow-lg-val)] transition duration-[var(--duration-normal)]',
+                  'absolute right-0 top-full min-w-52 rounded-xl border border-primary/15 bg-white p-2 text-foreground shadow-[var(--shadow-lg-val)] transition duration-[var(--duration-normal)]',
                   isMoreOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
-                  useLightHeader
-                    ? 'border-black/12 bg-white text-black'
-                    : 'border-white/25 bg-black/90 text-white backdrop-blur-md',
                 )}
               >
                 {HEADER_SECONDARY_LINKS.map((link) => (
                   <NavLink
                     className={({ isActive }) =>
                       cn(
-                        'block rounded-lg px-3 py-2 type-overline tracking-[var(--tracking-wide)] transition',
-                        useLightHeader
-                          ? 'text-black/80 hover:bg-black/6 hover:text-black'
-                          : 'text-white/85 hover:bg-white/10 hover:text-white',
-                        isActive && (useLightHeader ? 'bg-black/8 text-black' : 'bg-white/15 text-white'),
+                        'block rounded-lg px-3 py-2 type-overline tracking-[var(--tracking-wide)] text-foreground/[var(--opacity-muted)] transition',
+                        'hover:bg-primary/10 hover:text-primary-700',
+                        isActive && 'bg-primary text-white hover:bg-primary hover:text-white',
                       )
                     }
                     key={link.href}
@@ -203,10 +161,8 @@ export function Header() {
             </div>
             <NavLink
               className={cn(
-                'rounded-full border px-4 py-1.5 text-[length:var(--text-overline)] uppercase tracking-[var(--tracking-wide)] transition',
-                useLightHeader
-                  ? 'border-black/30 text-black hover:bg-black hover:text-white'
-                  : 'border-white/40 text-white hover:bg-white hover:text-black',
+                'rounded-full border border-primary px-4 py-1.5 type-overline tracking-[var(--tracking-wide)] text-primary transition',
+                'hover:bg-primary hover:text-white',
               )}
               onClick={() => {
                 setIsMoreOpen(false)
@@ -218,10 +174,8 @@ export function Header() {
             </NavLink>
             <a
               className={cn(
-                'rounded-full border px-4 py-1.5 text-[length:var(--text-overline)] uppercase tracking-[var(--tracking-wide)] transition',
-                useLightHeader
-                  ? 'border-black bg-black text-white hover:bg-black/90'
-                  : 'border-white bg-white text-black hover:bg-white/90',
+                'rounded-full border border-primary bg-primary px-4 py-1.5 type-overline tracking-[var(--tracking-wide)] text-white transition',
+                'hover:bg-primary-700',
               )}
               href={primaryPhoneHref}
             >
@@ -231,7 +185,7 @@ export function Header() {
           <button
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle navigation menu"
-            className={cn('inline-flex h-9 w-9 items-center justify-center rounded-md lg:hidden', mutedTextColorClass)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground lg:hidden"
             onClick={() => setIsMobileMenuOpen((previous) => !previous)}
             type="button"
           >
@@ -264,14 +218,14 @@ export function Header() {
             isMobileMenuOpen ? 'max-h-[70vh] pt-3 opacity-100' : 'max-h-0 opacity-0',
           )}
         >
-          <div className="grid gap-1 rounded-lg border border-black/10 bg-white p-2 text-black">
+          <div className="mx-auto grid w-full max-w-[var(--container-max)] gap-1 rounded-lg border border-black/10 bg-white p-2 text-foreground">
             {[...HEADER_PRIMARY_LINKS, ...HEADER_SECONDARY_LINKS].map((link) => (
               <NavLink
                 className={({ isActive }) =>
                   cn(
-                    'block rounded-md px-3 py-2 type-overline tracking-[var(--tracking-wide)] transition',
-                    'text-black hover:bg-black hover:text-white',
-                    (isActive || (link.href === '/projects' && isProjectsAliasRoute)) && 'bg-black text-white hover:bg-black hover:text-white',
+                    'block rounded-md px-3 py-2 type-overline tracking-[var(--tracking-wide)] text-foreground/[var(--opacity-muted)] transition',
+                    'hover:bg-primary/10 hover:text-primary-700',
+                    (isActive || (link.href === '/projects' && isProjectsAliasRoute)) && 'bg-primary text-white hover:bg-primary hover:text-white',
                   )
                 }
                 key={link.href}
@@ -286,7 +240,7 @@ export function Header() {
             ))}
             <div className="mt-2 grid gap-2 border-t border-black/10 pt-2">
               <NavLink
-                className="block rounded-md border border-black px-3 py-2 type-overline tracking-[var(--tracking-wide)] text-center text-black transition hover:bg-black hover:text-white"
+                className="block rounded-md border border-primary px-3 py-2 type-overline tracking-[var(--tracking-wide)] text-center text-primary transition hover:bg-primary hover:text-white"
                 onClick={() => {
                   setIsMoreOpen(false)
                   setIsMobileMenuOpen(false)
@@ -296,7 +250,7 @@ export function Header() {
                 Get Free Quote
               </NavLink>
               <a
-                className="block rounded-md border border-black bg-black px-3 py-2 type-overline tracking-[var(--tracking-wide)] text-center text-white transition hover:bg-black/90"
+                className="block rounded-md border border-primary bg-primary px-3 py-2 type-overline tracking-[var(--tracking-wide)] text-center text-white transition hover:bg-primary-700"
                 href={primaryPhoneHref}
                 onClick={() => {
                   setIsMoreOpen(false)

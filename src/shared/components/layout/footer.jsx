@@ -4,7 +4,7 @@ import { Container } from '@/shared/components/ui/container'
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/15 bg-surface-darker text-white">
+    <footer className="border-t border-primary-300/18 bg-primary-800 text-white">
       <Container as="div" className="py-[var(--section-spacing-md)]">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
@@ -74,7 +74,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/15 pt-5 text-[length:var(--text-overline)] uppercase tracking-[var(--tracking-wide)] text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-primary-300/18 pt-5 text-[length:var(--text-overline)] uppercase tracking-[var(--tracking-wide)] text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
           <div className="flex gap-4">
             <NavLink className="transition hover:text-white/80" to="/legals">

@@ -1,6 +1,18 @@
+import heroPrimaryImage from '@/shared/data/images/imgi_186_what-is-double-glazing-hero-1440x700.jpg'
+import heroSidePlanningImage from '@/shared/data/images/imgi_176_aluminium-glass-glazing.jpg'
+import heroSideShowroomImage from '@/shared/data/images/imgi_233_IMG_4258.jpg'
+import heroStatementImage from '@/shared/data/images/imgi_173_Double-glazed-window.jpg'
+import showcaseSpecialtyImage from '@/shared/data/images/imgi_188_667223738bf091ecb2c42305.webp'
+import doubleGlazeCategoryImage from '@/shared/data/images/doubleglaze.png'
+import vacuumGlassCategoryImage from '@/shared/data/images/vaccumglass.png'
+import projectBeforeImageOne from '@/shared/data/images/image1.png'
+import projectAfterImageOne from '@/shared/data/images/image2.png'
+import windowHeroPrimaryImage from '@/shared/data/images/window_hero1.jpg'
+import windowHeroSecondaryImage from '@/shared/data/images/window_hero2.jpg'
+
 export const HEADER_PRIMARY_LINKS = [
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
+  { href: '/services', label: 'Category' },
   { href: '/projects', label: 'Projects' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -29,29 +41,59 @@ export const HOME_CONTENT = {
       '10-Year Warranty',
     ],
   },
+  editorialHero: {
+    kicker: 'Minimal retrofit architecture for existing homes',
+    title: 'Minimal Windows style glazing upgrades for calm, modern living.',
+    primaryCta: { label: 'Download Service Overview', to: '/services' },
+    leadCaption: 'Individually tailored to your frames and daily comfort goals',
+    sequenceLabel: '01 / 07',
+    backgroundImage: windowHeroPrimaryImage,
+    foregroundImage: windowHeroSecondaryImage,
+    primaryImage: {
+      src: heroPrimaryImage,
+      alt: 'Contemporary glass extension with slim framing at dusk',
+    },
+    sideCards: [
+      {
+        title: '3D Planning',
+        text: 'We map each opening to ensure precise fit and clean installation details before production.',
+        cta: 'View process',
+        image: heroSidePlanningImage,
+      },
+      {
+        title: 'Showroom Inspiration',
+        text: 'Explore frame finishes, glass options, and acoustic upgrades with practical recommendations.',
+        cta: 'See options',
+        image: heroSideShowroomImage,
+      },
+    ],
+    statement: {
+      title: 'Refined glazing design with practical performance benefits',
+      body: 'Everest retrofit glazing combines minimalist visual lines with measurable thermal and acoustic improvements. You keep your existing frame character while gaining better comfort and energy control.',
+      image: heroStatementImage,
+      imageAlt: 'Corner glass detail and slim profile framing in a modern home',
+    },
+  },
   showcaseItems: [
     {
-      title: 'Retrofit Double Glazing',
+      title: 'Double Glazing',
       description:
-        'Upgrade your existing windows with double-glazed units without full frame replacement.',
-      image:
-        'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80',
+        'Two layers of glass with an insulated gap that helps reduce heat loss and outside noise.',
+      image: doubleGlazeCategoryImage,
       link: '/services',
     },
     {
-      title: 'Secondary Glazing',
+      title: 'Vaccum Glass',
       description:
-        'A practical option for homes that need insulation and noise control while keeping existing frames.',
-      image:
-        'https://images.unsplash.com/photo-1523419409543-8a41d4f910d8?auto=format&fit=crop&w=1500&q=80',
+        'Ultra-thin glass with a vacuum-sealed gap that delivers superior insulation and maximum energy efficiency.',
+      image: vacuumGlassCategoryImage,
       link: '/services',
     },
     {
       title: 'Specialty Glass Upgrades',
       description:
         'Privacy, acoustic, and high-performance glass options tailored to your room and comfort needs.',
-      image:
-        'https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?auto=format&fit=crop&w=1500&q=80',
+      image: showcaseSpecialtyImage,
       link: '/services',
     },
   ],
@@ -174,10 +216,8 @@ export const HOME_CONTENT = {
       location: 'ACT Residential Upgrade',
       beforeImage: '/projects/before-after-01-before.jpg',
       afterImage: '/projects/before-after-01-after.jpg',
-      fallbackBefore:
-        'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1900&q=80',
-      fallbackAfter:
-        'https://images.unsplash.com/photo-1613977257592-487ecd136cc3?auto=format&fit=crop&w=1900&q=80',
+      fallbackBefore: projectAfterImageOne,
+      fallbackAfter: projectBeforeImageOne,
     },
     {
       id: 'timber-frame-upgrade',

@@ -57,6 +57,8 @@ const variantMap = {
   'outline-light': 'border border-white text-white hover:bg-white hover:text-black',
   white: 'bg-white text-foreground hover:bg-white/90',
   ghost: 'text-foreground hover:bg-accent',
+  primary: 'bg-primary text-white hover:bg-primary-700',
+  'primary-outline': 'border border-primary text-primary hover:bg-primary hover:text-white',
 }
 
 const sizeMap = {

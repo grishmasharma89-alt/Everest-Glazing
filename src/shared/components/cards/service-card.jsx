@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { CardShell } from '@/shared/components/ui/card-shell'
 import { LinkButton } from '@/shared/components/ui/link-button'
+import { cn } from '@/shared/lib/utils'
 
 /**
  * ServiceCard — displays a single service offering.
@@ -12,9 +13,10 @@ export const ServiceCard = memo(function ServiceCard({
   icon,
   image,
   link,
+  className,
 }) {
   return (
-    <CardShell hover>
+    <CardShell hover className={cn(className)}>
       {image && (
         <img src={image} alt={title} className="mb-4 h-44 w-full rounded-xl object-cover" loading="lazy" />
       )}
