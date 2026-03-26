@@ -42,6 +42,7 @@ export function ServicesPage() {
             {categories.map((category, index) => {
               const isImageFirst = index % 2 === 0
               const details = categoryDetails[category.title] || []
+              const detailsParagraph = details.join(' ')
 
               return (
                 <div
@@ -63,13 +64,9 @@ export function ServicesPage() {
                   <div className={isImageFirst ? '' : 'lg:order-1'}>
                     <p className="type-overline text-primary">{index === 0 ? 'Double Glaze' : 'Vacuum Glass'}</p>
                     <h2 className="mt-3 type-h3 text-foreground">{category.title}</h2>
-                    <div className="mt-5 space-y-4">
-                      {details.map((detail) => (
-                        <p key={detail} className="border-b border-primary-300/20 pb-3 type-body text-foreground/[var(--opacity-muted)] last:border-b-0">
-                          {detail}
-                        </p>
-                      ))}
-                    </div>
+                    <p className="mt-5 type-body text-foreground/[var(--opacity-muted)]">
+                      {detailsParagraph}
+                    </p>
                   </div>
                 </div>
               )

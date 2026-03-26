@@ -10,8 +10,6 @@ import { CardShell } from '@/shared/components/ui/card-shell'
 import { TestimonialsSection } from '@/shared/components/sections/testimonials-section'
 import { Accordion } from '@/shared/components/ui/accordion'
 import { CTASection } from '@/shared/components/sections/cta-section'
-import { ContactForm } from '@/shared/components/sections/contact-form'
-import { Badge } from '@/shared/components/ui/badge'
 import { LinkButton } from '@/shared/components/ui/link-button'
 
 function BeforeAfterCard({ title, location, beforeImage, afterImage }) {
@@ -78,10 +76,8 @@ export function HomePage() {
     editorialHero,
     showcaseItems,
     reviewItems,
-    serviceAreas,
     beforeAfterProjects,
     cta,
-    contactPreview,
   } = HOME_CONTENT
   const { faqs } = FAQ_CONTENT
   const primaryPhoneHref = `tel:${COMPANY.phone.replace(/\s/g, '')}`
@@ -308,57 +304,6 @@ export function HomePage() {
             className="mt-8"
             items={faqs.map((faq) => ({ question: faq.q, answer: faq.a }))}
           />
-        </Container>
-      </Section>
-
-      <Section background="light">
-        <Container>
-          <Heading
-            label={contactPreview.label}
-            title={contactPreview.title}
-            subtitle={contactPreview.subtitle}
-            level="h2"
-          />
-          <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1.35fr]">
-            <div className="space-y-6">
-              <CardShell>
-                <p className="type-label text-black/55">Direct Contact</p>
-                <div className="mt-4 space-y-3 type-body text-black/78">
-                  <p>
-                    Phone:{' '}
-                    <a className="font-medium hover:underline" href={primaryPhoneHref}>
-                      {COMPANY.phone}
-                    </a>{' '}
-                    /{' '}
-                    <a className="font-medium hover:underline" href={`tel:${COMPANY.phoneAlt.replace(/\s/g, '')}`}>
-                      {COMPANY.phoneAlt}
-                    </a>
-                  </p>
-                  <p>
-                    Email:{' '}
-                    <a className="font-medium hover:underline" href={`mailto:${COMPANY.email}`}>
-                      {COMPANY.email}
-                    </a>
-                  </p>
-                  <p>Warehouse: {COMPANY.address}</p>
-                </div>
-              </CardShell>
-
-              <CardShell>
-                <p className="type-label text-black/55">Primary Service Areas</p>
-                <div className="mt-4 flex flex-wrap gap-2.5">
-                  {serviceAreas.map((area) => (
-                    <Badge key={area} variant="outline">{area}</Badge>
-                  ))}
-                </div>
-              </CardShell>
-            </div>
-
-            <CardShell>
-              <p className="type-label text-black/55">Free Quote Form</p>
-              <ContactForm className="mt-5" />
-            </CardShell>
-          </div>
         </Container>
       </Section>
     </div>

@@ -1,43 +1,67 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { Section } from '@/shared/components/ui/section'
 import { Container } from '@/shared/components/ui/container'
-import { Heading } from '@/shared/components/ui/heading'
-import { CardShell } from '@/shared/components/ui/card-shell'
-import { CTASection } from '@/shared/components/sections/cta-section'
-import { COMPANY } from '@/shared/lib/constants'
+import { OptimizedImage } from '@/shared/components/common/optimized-image'
+import { PROJECTS_CONTENT } from '@/shared/data/site-content'
 
-/**
- * Individual Project Detail Page
- */
 export function ProjectDetailPage() {
   const { slug } = useParams()
-  const primaryPhoneHref = `tel:${COMPANY.phone.replace(/\s/g, '')}`
+  const project = PROJECTS_CONTENT.projects.find((p) => p.slug === slug)
 
-  return (
-    <>
-      <Section background="white" className="pt-28 sm:pt-32">
+  if (!project) {
+    return (
+      <Section background="white" className="pt-28">
         <Container>
-          <Heading
-            label="Project Detail"
-            title={`Project: ${slug}`}
-            subtitle="Detailed before/after breakdown, scope, and installation outcomes."
-            level="h1"
-          />
-          <CardShell className="mt-8">
-            <p className="type-body text-black/72">
-              This route is ready for detailed project data wiring. It can be fed by a CMS or
-              project JSON and rendered using the same card and section system.
-            </p>
-          </CardShell>
+          <p className="text-center text-foreground/60">Project not found.</p>
+          <div className="mt-6 text-center">
+            <Link to="/projects" className="text-primary underline">Back to Projects</Link>
+          </div>
         </Container>
       </Section>
+    )
+  }
 
-      <CTASection
-        label="Your project"
-        title="Want similar results at your property?"
-        primaryCta={{ label: 'Get Free Quote', to: '/contact' }}
-        secondaryCta={{ label: `Call ${COMPANY.phone}`, href: primaryPhoneHref }}
-      />
-    </>
+  return (
+    <Section background="white" className="pt-24 pb-20 md:pt-28">
+      <Container>
+        {/* Back link */}
+        <Link
+          to="/projects"
+          className="inline-flex items-center gap-1.5 text-sm text-foreground/50 hover:text-primary transition-colors"
+        >
+          ← Back to Projects
+        </Link>
+
+        {/* Project title */}
+        <div className="mt-6">
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+            {project.location}
+          </p>
+          <h1 className="mt-3 text-4xl font-bold md:text-5xl">{project.title}</h1>
+        </div>
+
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.35fr_1fr] lg:items-start">
+          {/* Landscape image */}
+          <div className="overflow-hidden rounded-xl">
+            <OptimizedImage
+              src={project.image}
+              alt={project.title}
+              className="aspect-video w-full object-cover"
+              wrapperClassName="bg-secondary"
+            />
+          </div>
+
+          {/* Two descriptive paragraphs */}
+          <div className="min-w-0 space-y-6">
+            <p className="text-[length:var(--text-body)] leading-relaxed text-foreground/80">
+              {project.description}
+            </p>
+            <p className="text-[length:var(--text-body)] leading-relaxed text-foreground/80">
+              {project.details}
+            </p>
+          </div>
+        </div>
+      </Container>
+    </Section>
   )
 }

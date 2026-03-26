@@ -5,19 +5,19 @@ import { Container } from '@/shared/components/ui/container'
 export function Footer() {
   return (
     <footer className="border-t border-primary-300/18 bg-primary-800 text-white">
-      <Container as="div" className="py-[var(--section-spacing-md)]">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-4">
-            <p className="text-3xl font-semibold leading-[var(--leading-display)] tracking-tight">Everest</p>
-            <p className="text-[length:var(--text-body-sm)] uppercase tracking-[var(--tracking-overline)] text-white/70">Double Glazing</p>
-            <p className="max-w-xs type-body text-white/75">
+      <Container as="div" className="py-8 sm:py-10">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-2">
+            <p className="text-2xl font-semibold leading-(--leading-display) tracking-tight">Everest</p>
+            <p className="text-xs uppercase tracking-(--tracking-overline) text-white/70">Double Glazing</p>
+            <p className="max-w-xs text-sm leading-relaxed text-white/75">
               {COMPANY.tagline}. {COMPANY.description}.
             </p>
           </div>
 
-          <div className="space-y-3">
-            <p className="text-[length:var(--text-overline)] uppercase tracking-[var(--tracking-overline)] text-white/55">Quick Links</p>
-            <div className="grid gap-2 text-[length:var(--text-body-sm)] uppercase tracking-[var(--tracking-wide)]">
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-(--tracking-overline) text-white/55">Quick Links</p>
+            <div className="grid gap-1 text-xs uppercase tracking-(--tracking-wide)">
               {NAV_LINKS.map((link) => (
                 <NavLink
                   key={link.href}
@@ -33,9 +33,9 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="space-y-3">
-            <p className="text-[length:var(--text-overline)] uppercase tracking-[var(--tracking-overline)] text-white/55">Contact</p>
-            <div className="space-y-2 text-[length:var(--text-body-sm)] text-white/80">
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-(--tracking-overline) text-white/55">Contact</p>
+            <div className="space-y-1 text-xs leading-relaxed text-white/80">
               <p>
                 <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`} className="transition hover:text-white">
                   {COMPANY.phone}
@@ -64,9 +64,9 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="space-y-3">
-            <p className="text-[length:var(--text-overline)] uppercase tracking-[var(--tracking-overline)] text-white/55">Trust</p>
-            <div className="grid gap-2 text-[length:var(--text-body-sm)] text-white/80">
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-(--tracking-overline) text-white/55">Trust</p>
+            <div className="grid gap-1 text-xs leading-relaxed text-white/80">
               {TRUST_BADGES.map((badge) => (
                 <p key={badge}>{badge}</p>
               ))}
@@ -74,9 +74,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-primary-300/18 pt-5 text-[length:var(--text-overline)] uppercase tracking-[var(--tracking-wide)] text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-2 border-t border-primary-300/18 pt-4 text-[10px] uppercase tracking-(--tracking-wide) text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <NavLink className="transition hover:text-white/80" to="/legals">
               Privacy
             </NavLink>

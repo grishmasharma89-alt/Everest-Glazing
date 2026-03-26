@@ -1,62 +1,63 @@
+import { memo } from 'react'
+import { Link } from 'react-router-dom'
 import { PROJECTS_CONTENT } from '@/shared/data/site-content'
-import { COMPANY } from '@/shared/lib/constants'
-import { HeroSection } from '@/shared/components/sections/hero-section'
 import { Section } from '@/shared/components/ui/section'
 import { Container } from '@/shared/components/ui/container'
-import { Heading } from '@/shared/components/ui/heading'
-import { ProjectCard } from '@/shared/components/cards/project-card'
-import { Badge } from '@/shared/components/ui/badge'
-import { CTASection } from '@/shared/components/sections/cta-section'
+import { OptimizedImage } from '@/shared/components/common/optimized-image'
+
+const ProjectGalleryItem = memo(function ProjectGalleryItem({ title, image, slug }) {
+  return (
+    <Link to={`/projects/${slug}`} className="group block cursor-pointer space-y-3">
+      <div className="relative overflow-hidden rounded-lg">
+        <OptimizedImage
+          src={image}
+          alt={title}
+          className="aspect-square w-full transition-transform duration-500 group-hover:scale-105"
+          wrapperClassName="bg-secondary"
+        />
+        {/* Hover overlay */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          {/* Teal circular badge */}
+          <div
+            className="flex h-28 w-28 items-center justify-center rounded-full text-center text-sm font-semibold text-white shadow-lg"
+            style={{
+              background: 'radial-gradient(circle at 40% 35%, #A2D6E6, #5BB5D0 60%, #2F6F86)',
+            }}
+          >
+            View More
+          </div>
+        </div>
+      </div>
+      <h3 className="text-center text-[length:var(--text-body)] font-semibold">{title}</h3>
+    </Link>
+  )
+})
 
 export function ProjectsPage() {
-  const primaryPhoneHref = `tel:${COMPANY.phone.replace(/\s/g, '')}`
-  const { hero, categories, projects } = PROJECTS_CONTENT
+  const { projects } = PROJECTS_CONTENT
 
   return (
-    <>
-      <HeroSection
-        image="https://images.unsplash.com/photo-1519643381401-22c77e60520e?auto=format&fit=crop&w=2000&q=80"
-        title={hero.title}
-        subtitle={hero.subtitle}
-        primaryCta={{ label: 'Get Free Quote', to: '/contact' }}
-        secondaryCta={{ label: `Call ${COMPANY.phone}`, href: primaryPhoneHref }}
-        className="pt-20"
-      />
+    <Section background="white" className="pt-24 md:pt-28">
+      <Container>
+        {/* Title section - matching the provided design */}
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-[length:var(--text-overline)] font-semibold tracking-widest text-primary">
+            OUR PROJECTS
+          </p>
+          <h1 className="mt-4 text-5xl font-bold md:text-6xl">Projects and Gallery</h1>
+          <p className="mt-6 text-[length:var(--text-body-lg)] text-foreground/[var(--opacity-secondary)]">
+            Explore our latest retrofit installations across Canberra and surrounding regions. Each project
+            showcases our commitment to quality workmanship and customer satisfaction.
+          </p>
+        </div>
 
-      <Section background="light">
-        <Container>
-          <Heading label="Categories" title="Project types we regularly deliver" level="h2" />
-          <div className="mt-8 flex flex-wrap gap-2.5">
-            {categories.map((category) => (
-              <Badge key={category} variant="outline">{category}</Badge>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section background="white">
-        <Container>
-          <Heading
-            label="Gallery"
-            title="Recent retrofit upgrades"
-            subtitle="Browse completed projects across timber and aluminium frame installations."
-            level="h2"
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} {...project} />
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <CTASection
-        label="Your project"
-        title="Want your property to be the next success story?"
-        subtitle="Book a free measure and we will scope the right retrofit approach for your frames."
-        primaryCta={{ label: 'Book Free Measure', to: '/contact' }}
-        secondaryCta={{ label: `Call ${COMPANY.phone}`, href: primaryPhoneHref }}
-      />
-    </>
+        {/* Gallery grid - 6 items */}
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.slice(0, 6).map((project) => (
+            <ProjectGalleryItem key={project.slug} title={project.title} image={project.image} slug={project.slug} />
+          ))}
+        </div>
+      </Container>
+    </Section>
   )
 }

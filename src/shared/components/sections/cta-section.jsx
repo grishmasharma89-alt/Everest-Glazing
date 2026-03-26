@@ -13,20 +13,26 @@ export function CTASection({
   subtitle,
   primaryCta = { label: 'Get a Free Quote', to: '/contact' },
   secondaryCta,
+  background = 'primary-dark',
+  spacing = 'lg',
+  light = true,
+  primaryVariant = 'white',
+  secondaryVariant = 'outline-light',
+  className,
 }) {
   return (
-    <Section background="primary-dark" spacing="lg">
+    <Section background={background} spacing={spacing} className={className}>
       <Container className="text-center">
         <Heading
           label={label}
           title={title}
           subtitle={subtitle}
           align="center"
-          light
+          light={light}
         />
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           {primaryCta && (
-            <LinkButton to={primaryCta.to} href={primaryCta.href} variant="white" size="lg">
+            <LinkButton to={primaryCta.to} href={primaryCta.href} variant={primaryVariant} size="lg">
               {primaryCta.label}
             </LinkButton>
           )}
@@ -34,7 +40,7 @@ export function CTASection({
             <LinkButton
               to={secondaryCta.to}
               href={secondaryCta.href}
-              variant="outline-light"
+              variant={secondaryVariant}
               size="lg"
             >
               {secondaryCta.label}
