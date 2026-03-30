@@ -134,7 +134,7 @@ export function ContactForm({ className }) {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Tell us about your project..."
+            placeholder="Write your message here..."
             rows={5}
           />
         </FormField>

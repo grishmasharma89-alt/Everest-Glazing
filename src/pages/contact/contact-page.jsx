@@ -68,7 +68,7 @@ export function ContactPage() {
                 </aside>
 
                 <div className="bg-white p-7 sm:p-8 lg:p-9">
-                  <p className="type-label text-black/55">Free Quote Form</p>
+                  <p className="type-label text-black/55">Contact Form</p>
                   <ContactForm className="mt-5" />
                 </div>
               </div>
