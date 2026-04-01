@@ -520,6 +520,8 @@ export const PROJECTS_CONTENT = {
     {
       title: 'Canberra Retrofit Transformation',
       type: 'Before and After',
+      segment: 'Residential',
+      filters: ['retrofit', 'before-and-after', 'double-glazing'],
       location: 'Canberra',
       image:
         'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80',
@@ -530,6 +532,8 @@ export const PROJECTS_CONTENT = {
     {
       title: 'Timber Frame Upgrade',
       type: 'Timber Upgrade',
+      segment: 'Residential',
+      filters: ['timber', 'retrofit', 'double-glazing'],
       location: 'Queanbeyan',
       image:
         'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80',
@@ -540,6 +544,8 @@ export const PROJECTS_CONTENT = {
     {
       title: 'Aluminium Window Refresh',
       type: 'Aluminium Upgrade',
+      segment: 'Commercial',
+      filters: ['aluminium', 'low-e', 'retrofit'],
       location: 'Belconnen',
       image:
         'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80',
@@ -550,6 +556,8 @@ export const PROJECTS_CONTENT = {
     {
       title: 'Frosted Privacy Glass Installation',
       type: 'Frosted Glass',
+      segment: 'Commercial',
+      filters: ['frosted', 'privacy', 'acoustic'],
       location: 'Gungahlin',
       image:
         'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1600&q=80',
@@ -560,6 +568,8 @@ export const PROJECTS_CONTENT = {
     {
       title: 'Winter Warmth Retrofit',
       type: 'Comfort Upgrade',
+      segment: 'Residential',
+      filters: ['timber', 'retrofit', 'argon-filled'],
       location: 'Woden',
       image:
         'https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1600&q=80',
@@ -570,6 +580,8 @@ export const PROJECTS_CONTENT = {
     {
       title: 'Low-E Double Glazing Replacement',
       type: 'Energy Efficiency',
+      segment: 'Commercial',
+      filters: ['low-e', 'energy-efficient', 'double-glazing'],
       location: 'Tuggeranong',
       image:
         'https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1600&q=80',
