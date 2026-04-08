@@ -255,16 +255,16 @@ export function HomePage() {
       <Section background="light" className="border-y border-primary-300/20">
         <Container>
           <div className="mx-auto max-w-[calc(var(--container-max)*0.9)]">
-            <div className="reveal text-center">
+            <div className="text-center">
               <p className="type-overline text-primary">Category</p>
               <h2 className="mt-3 type-h2 text-foreground">Choose the right glass for your space</h2>
               <p className="mx-auto mt-4 max-w-3xl type-body sm:text-[length:var(--text-body-lg)] text-foreground/[var(--opacity-muted)]">
                From reliable double glazing to high-performance vacuum glass, we provide solutions that improve insulation, reduce noise, and increase energy efficiency.
               </p>
-              <div className="reveal-line mx-auto mt-5 h-px w-full max-w-3xl bg-primary-300/35" />
+              <div className="mx-auto mt-5 h-px w-full max-w-3xl bg-primary-300/35" />
             </div>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:gap-6 reveal-stagger">
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:gap-6">
               {serviceCategories.map((item, index) => (
                 <div key={item.title}>
                   <CardShell className="hover-lift rounded-[2rem] border border-primary-300/20 bg-white p-0 shadow-[var(--shadow-md-val)] overflow-hidden">
@@ -272,7 +272,7 @@ export function HomePage() {
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="aspect-[16/10.5] w-full object-cover reveal-image reveal-parallax hover-zoom"
+                        className="aspect-[16/10.5] w-full object-cover hover-zoom"
                         width={800}
                         height={525}
                         loading="lazy"
@@ -299,7 +299,7 @@ export function HomePage() {
       <Section background="white" className="border-b border-primary-300/20">
         <Container>
           <div className="mx-auto max-w-6xl">
-            <div className="reveal text-center">
+            <div className="text-center">
               <p className="type-overline text-primary">Projects</p>
               <h2 className="mt-3 type-h2 text-foreground">Our work at a glance</h2>
               <p className="mx-auto mt-4 max-w-3xl type-body sm:text-[length:var(--text-body-lg)] text-foreground/[var(--opacity-muted)]">
@@ -320,7 +320,7 @@ export function HomePage() {
               ))}
             </div>
 
-            <div className="reveal-scale mt-10 flex justify-center">
+            <div className="mt-10 flex justify-center">
               <LinkButton to="/projects" variant="primary-outline" size="default" className="hover-press">
                 Explore more
               </LinkButton>

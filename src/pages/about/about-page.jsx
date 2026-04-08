@@ -77,7 +77,7 @@ export function AboutPage() {
           <div className="reveal-stagger mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((item) => (
               <div key={item.label} className="text-center">
-                <p className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{item.value}</p>
+                <p className="reveal text-3xl font-semibold tracking-tight text-white sm:text-4xl">{item.value}</p>
                 <p className="mt-2 type-overline text-white/60">{item.label}</p>
               </div>
             ))}
