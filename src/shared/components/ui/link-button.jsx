@@ -16,7 +16,7 @@ export function LinkButton({
   ...props
 }) {
   const styles = cn(
-    'inline-flex items-center justify-center rounded-full font-medium tracking-[var(--tracking-button)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+    'inline-flex items-center justify-center rounded-full font-medium tracking-[var(--tracking-button)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring hover-press',
     variantMap[variant],
     sizeMap[size],
     className,

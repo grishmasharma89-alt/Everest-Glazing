@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom'
 import { WHY_CHOOSE_US_CONTENT } from '@/shared/data/site-content'
 import { COMPANY } from '@/shared/lib/constants'
+import { useScrollReveal } from '@/shared/hooks/use-scroll-reveal'
 
 export function WhyChooseUsPage() {
+  const scopeRef = useScrollReveal()
   const { reasons } = WHY_CHOOSE_US_CONTENT
   const primaryPhoneHref = `tel:${COMPANY.phone.replace(/\s/g, '')}`
   return (
-    <div className="bg-black pt-28 text-white sm:pt-32">
+    <div ref={scopeRef} className="bg-black pt-28 text-white sm:pt-32">
       <section className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)] py-12 lg:py-16">
-        <p className="type-overline text-white/70">Why Choose Everest</p>
-        <h1 className="mt-4 max-w-5xl type-h1">
+        <p className="reveal-hero type-overline text-white/70">Why Choose Everest</p>
+        <h1 className="reveal-hero mt-4 max-w-5xl type-h1">
           Honest, reliable, economic, and local.
           <br />
           Clear Choice for Comfort.
@@ -17,7 +19,7 @@ export function WhyChooseUsPage() {
       </section>
 
       <section className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)] pb-16 lg:pb-20">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="reveal-stagger grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason) => (
             <div className="rounded-xl border border-white/20 bg-white/5 p-4 type-body leading-[var(--leading-snug)] text-white/88" key={reason}>
               {reason}

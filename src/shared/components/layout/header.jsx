@@ -3,6 +3,8 @@ import { cn } from '@/shared/lib/utils'
 import { useEffect, useRef, useState } from 'react'
 import { HEADER_PRIMARY_LINKS } from '@/shared/data/site-content'
 import { COMPANY } from '@/shared/lib/constants'
+import { smoothScrollToTop } from '@/shared/hooks/use-smooth-scroll'
+import logoImage from '@/shared/data/images/logo.png'
 
 export function Header() {
   const { pathname } = useLocation()
@@ -12,8 +14,11 @@ export function Header() {
 
   const isProjectsAliasRoute = pathname.startsWith('/works')
 
-  const handleLogoClick = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  const handleLogoClick = (event) => {
+    if (pathname === '/') {
+      event.preventDefault()
+      smoothScrollToTop()
+    }
   }
 
   useEffect(() => {
@@ -68,9 +73,8 @@ export function Header() {
         )}
       >
         <div className="mx-auto flex w-full max-w-(--container-max) items-center justify-between gap-4">
-          <NavLink className="leading-(--leading-display) tracking-tight" onClick={handleLogoClick} to="/">
-            <p className="text-(length:--text-h4) font-semibold text-foreground">Everest</p>
-            <p className="text-(length:--text-caption) uppercase tracking-(--tracking-overline) text-foreground/60">Double Glazing</p>
+          <NavLink className="flex items-center" onClick={handleLogoClick} to="/">
+            <img src={logoImage} alt="Everest Double Glazing" className="h-14 w-auto object-contain" />
           </NavLink>
           <nav className="hidden items-center gap-2 lg:flex">
             {HEADER_PRIMARY_LINKS.map((link) => (

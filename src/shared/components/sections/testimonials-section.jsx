@@ -17,8 +17,10 @@ export function TestimonialsSection({
   return (
     <Section background={background}>
       <Container>
-        <Heading label={label} title={title} subtitle={subtitle} />
-        <div className="mt-8 grid gap-4 lg:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="reveal">
+          <Heading label={label} title={title} subtitle={subtitle} />
+        </div>
+        <div className="mt-8 grid gap-4 lg:mt-12 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger">
           {testimonials.map((testimonial, idx) => (
             <TestimonialCard key={idx} {...testimonial} />
           ))}

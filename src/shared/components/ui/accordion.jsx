@@ -1,10 +1,6 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { cn } from '@/shared/lib/utils'
 
-/**
- * Accordion — disclosure list for FAQ pages.
- * Pure React state, no external dependency. Accessible with aria attributes.
- */
 export function Accordion({ items, className, allowMultiple = false }) {
   const [openIndices, setOpenIndices] = useState(new Set())
 
@@ -41,6 +37,34 @@ export function Accordion({ items, className, allowMultiple = false }) {
 function AccordionItem({ question, answer, index, isOpen, onToggle }) {
   const panelId = `accordion-panel-${index}`
   const triggerId = `accordion-trigger-${index}`
+  const contentRef = useRef(null)
+  const wrapperRef = useRef(null)
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current
+    const content = contentRef.current
+    if (!wrapper || !content) return
+
+    if (isOpen) {
+      const height = content.scrollHeight
+      wrapper.style.height = '0px'
+      wrapper.style.opacity = '0'
+      requestAnimationFrame(() => {
+        wrapper.style.transition = 'height 400ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease'
+        wrapper.style.height = `${height}px`
+        wrapper.style.opacity = '1'
+      })
+    } else {
+      const height = content.scrollHeight
+      wrapper.style.height = `${height}px`
+      wrapper.style.opacity = '1'
+      requestAnimationFrame(() => {
+        wrapper.style.transition = 'height 350ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms ease'
+        wrapper.style.height = '0px'
+        wrapper.style.opacity = '0'
+      })
+    }
+  }, [isOpen])
 
   return (
     <div>
@@ -55,7 +79,7 @@ function AccordionItem({ question, answer, index, isOpen, onToggle }) {
         <span>{question}</span>
         <span
           className={cn(
-            'shrink-0 text-xl transition-transform duration-200',
+            'shrink-0 text-xl transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]',
             isOpen && 'rotate-45',
           )}
           aria-hidden="true"
@@ -64,31 +88,19 @@ function AccordionItem({ question, answer, index, isOpen, onToggle }) {
         </span>
       </button>
       <div
+        ref={wrapperRef}
         id={panelId}
         role="region"
         aria-labelledby={triggerId}
-        className={cn(
-          'grid transition-all duration-[var(--duration-normal)]',
-          isOpen ? 'grid-rows-[1fr] pb-5' : 'grid-rows-[0fr]',
-        )}
+        className="overflow-hidden"
+        style={{ height: 0, opacity: 0 }}
       >
-        <div className="overflow-hidden">
+        <div ref={contentRef} className="pb-5">
           <p className="max-w-3xl text-[length:var(--text-body-sm)] leading-[var(--leading-body)] text-foreground/[var(--opacity-muted)] sm:text-[length:var(--text-body)]">
             {answer}
           </p>
         </div>
       </div>
-    </div>
-  )
-}
-
-export function AccordionContent({ className, children, ...props }) {
-  return (
-    <div
-      className={cn('pb-4 text-gray-600', className)}
-      {...props}
-    >
-      {children}
     </div>
   )
 }

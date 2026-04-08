@@ -15,7 +15,7 @@ export const TestimonialCard = memo(function TestimonialCard({
   rating,
 }) {
   return (
-    <CardShell className="flex flex-col justify-between">
+    <CardShell className="hover-lift flex flex-col justify-between">
       {rating != null && (
         <div className="mb-3 flex gap-0.5 text-amber-400" aria-label={`${rating} out of 5 stars`}>
           {Array.from({ length: 5 }, (_, i) => (

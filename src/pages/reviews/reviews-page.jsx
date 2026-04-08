@@ -7,13 +7,15 @@ import { Heading } from '@/shared/components/ui/heading'
 import { CardShell } from '@/shared/components/ui/card-shell'
 import { TestimonialsSection } from '@/shared/components/sections/testimonials-section'
 import { CTASection } from '@/shared/components/sections/cta-section'
+import { useScrollReveal } from '@/shared/hooks/use-scroll-reveal'
 
 export function ReviewsPage() {
+  const scopeRef = useScrollReveal()
   const { headlineReviews, supportReviews, reviewStats } = REVIEWS_CONTENT
   const primaryPhoneHref = `tel:${COMPANY.phone.replace(/\s/g, '')}`
 
   return (
-    <>
+    <div ref={scopeRef}>
       <HeroSection
         image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2000&q=80"
         title="Real homeowner feedback on warmth, comfort, and quiet"
@@ -26,7 +28,7 @@ export function ReviewsPage() {
       <Section background="light">
         <Container>
           <Heading label="Results" title="Measured outcomes clients notice most" level="h2" />
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="reveal-stagger mt-8 grid gap-4 sm:grid-cols-3">
             {reviewStats.map((stat) => (
               <CardShell key={stat.label}>
                 <p className="type-h3">{stat.value}</p>
@@ -70,6 +72,6 @@ export function ReviewsPage() {
         primaryCta={{ label: 'Request Free Quote', to: '/contact' }}
         secondaryCta={{ label: `Call ${COMPANY.phone}`, href: primaryPhoneHref }}
       />
-    </>
+    </div>
   )
 }

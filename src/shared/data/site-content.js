@@ -9,6 +9,12 @@ import projectBeforeImageOne from '@/shared/data/images/image1.png'
 import projectAfterImageOne from '@/shared/data/images/image2.png'
 import windowHeroPrimaryImage from '@/shared/data/images/window_hero1.jpg'
 import windowHeroSecondaryImage from '@/shared/data/images/window_hero2.jpg'
+import projectResidentialOne from '@/shared/data/images/image.png'
+import projectResidentialTwo from '@/shared/data/images/image1.png'
+import projectResidentialThree from '@/shared/data/images/window_hero2.jpg'
+import projectCommercialOne from '@/shared/data/images/imgi_176_aluminium-glass-glazing.jpg'
+import projectCommercialTwo from '@/shared/data/images/imgi_223_shutterstock_714847750.jpg'
+import projectCommercialThree from '@/shared/data/images/imgi_229_01804-bauwerk-window-glazing.jpg'
 
 export const HEADER_PRIMARY_LINKS = [
   { href: '/about', label: 'About' },
@@ -268,6 +274,56 @@ export const CONTACT_CONTENT = {
 }
 
 export const SERVICES_CONTENT = {
+  categories: [
+    {
+      id: 'double-glazing',
+      title: 'Double Glazing',
+      label: 'Standard Solution',
+      summary:
+        'Two panes of toughened glass separated by an argon gas spacer. Reduces heat transfer and softens outside noise for year-round comfort.',
+      benefits: [
+        'Improved thermal insulation across seasons',
+        'Noticeable reduction in street and neighbourhood noise',
+        'Retrofit-friendly — fits existing aluminium or timber frames',
+        'Lower heating and cooling costs over time',
+      ],
+      bestFor: 'Living areas, bedrooms, and larger window openings',
+      image: doubleGlazeCategoryImage,
+      cta: { label: 'Get a Free Quote', to: '/contact' },
+    },
+    {
+      id: 'vacuum-glass',
+      title: 'Vacuum Glass',
+      label: 'Premium Solution',
+      summary:
+        'Ultra-thin glazing with a vacuum-sealed gap for superior insulation without adding depth. Maximum efficiency in a slim profile.',
+      benefits: [
+        'Superior thermal performance in a thinner build',
+        'Advanced acoustic dampening for quieter interiors',
+        'Slim profile ideal for heritage and tight-reveal frames',
+        'Premium-grade materials with long-term durability',
+      ],
+      bestFor: 'Heritage homes, slim frames, and high-performance upgrades',
+      image: vacuumGlassCategoryImage,
+      cta: { label: 'Get a Free Quote', to: '/contact' },
+    },
+    {
+      id: 'specialty-glass',
+      title: 'Specialty Glass Upgrades',
+      label: 'Tailored Options',
+      summary:
+        'Privacy, acoustic, tinted, and frosted glass options designed for specific room needs and comfort goals.',
+      benefits: [
+        'Privacy glazing for bathrooms and street-facing windows',
+        'Tinted options to reduce glare and heat load',
+        'Acoustic glass for noise-sensitive rooms',
+        'Custom solutions matched to your property',
+      ],
+      bestFor: 'Bathrooms, home offices, and street-facing rooms',
+      image: showcaseSpecialtyImage,
+      cta: { label: 'Discuss Options', to: '/contact' },
+    },
+  ],
   additionalServices: [
     {
       title: 'Urgent Double Glazed Window Replacement and Repairs',
@@ -523,8 +579,7 @@ export const PROJECTS_CONTENT = {
       segment: 'Residential',
       filters: ['retrofit', 'before-and-after', 'double-glazing'],
       location: 'Canberra',
-      image:
-        'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80',
+      image: projectResidentialOne,
       slug: 'canberra-retrofit-transformation',
       description: 'This comprehensive retrofit project demonstrates the dramatic impact of modern double glazing on an older home. The installation was completed with minimal disruption to the existing frame architecture, preserving the character of the original structure. The homeowners reported a 30% reduction in heating costs during the first winter season.',
       details: 'Our team assessed the property over two days, taking precise measurements of every window opening before producing the custom insulated glass units off-site. The installation itself took just three days, with residents able to remain in the home throughout. Post-installation thermal imaging confirmed a dramatic reduction in cold-spot drafts along all treated frames, and the homeowners have since noted a quieter indoor environment due to the acoustic dampening properties of the new double-glazed units.',
@@ -535,8 +590,7 @@ export const PROJECTS_CONTENT = {
       segment: 'Residential',
       filters: ['timber', 'retrofit', 'double-glazing'],
       location: 'Queanbeyan',
-      image:
-        'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80',
+      image: projectResidentialTwo,
       slug: 'timber-frame-upgrade',
       description: 'Our team successfully retrofitted heritage timber frames with high-performance double glazing units. The project required custom manufacturing to match the original frame dimensions while incorporating modern thermal performance. The result seamlessly blends historical aesthetics with contemporary comfort and energy efficiency.',
       details: 'Preserving the integrity of the original 1960s timber joinery was a key priority for this project. We worked closely with the homeowner to source matching timber beading and used slim-profile insulated glass units that sit neatly within the existing rebate depth. The final result retains the warm, classic character of the original windows while delivering a thermal performance improvement that meets current Australian energy standards — a testament to what thoughtful retrofitting can achieve.',
@@ -547,8 +601,7 @@ export const PROJECTS_CONTENT = {
       segment: 'Commercial',
       filters: ['aluminium', 'low-e', 'retrofit'],
       location: 'Belconnen',
-      image:
-        'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80',
+      image: projectCommercialOne,
       slug: 'aluminium-window-refresh',
       description: 'This aluminium frame installation showcases our expertise in contemporary window systems. We installed advanced Low-E glazing that maintains the sleek modern look while providing superior thermal insulation. The upgrade has significantly improved the home\'s climate control efficiency throughout the year.',
       details: 'The existing aluminium frames were in excellent structural condition, making them ideal candidates for a glazing-only upgrade rather than full frame replacement — a more cost-effective and less disruptive approach. New thermally broken gaskets were fitted alongside the Low-E units to eliminate condensation on the inner pane, a common issue in Canberra\'s cold winters. The homeowner reported that their ducted heating system now cycles far less frequently, providing measurable savings on quarterly energy bills.',
@@ -559,8 +612,7 @@ export const PROJECTS_CONTENT = {
       segment: 'Commercial',
       filters: ['frosted', 'privacy', 'acoustic'],
       location: 'Gungahlin',
-      image:
-        'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1600&q=80',
+      image: projectCommercialTwo,
       slug: 'frosted-privacy-glass-installation',
       description: 'This project featured specialized frosted glass for enhanced privacy in sensitive areas. Our team combined aesthetic frosting patterns with acoustic glass technology to create functional and stylish boundaries. The homeowner now enjoys increased privacy without compromising natural light or thermal performance.',
       details: 'The bathroom and ensuite windows of this Gungahlin property faced a neighbouring property with minimal setback, making privacy glass an essential rather than optional upgrade. We specified a satin acid-etch pattern applied to the inner pane of a double-glazed unit, which diffuses vision while still transmitting excellent natural light throughout the day. The result is a bathroom that feels open and bright without any compromise on personal privacy, and the thermal performance of the double-glazed unit provides an added benefit during the colder months.',
@@ -571,8 +623,7 @@ export const PROJECTS_CONTENT = {
       segment: 'Residential',
       filters: ['timber', 'retrofit', 'argon-filled'],
       location: 'Woden',
-      image:
-        'https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1600&q=80',
+      image: projectResidentialThree,
       slug: 'winter-warmth-retrofit',
       description: 'Designed specifically to combat Canberra\'s harsh winters, this retrofitting project prioritized thermal retention and comfort. We installed premium argon-filled insulated glass units that maintain steady indoor temperatures throughout cold months. The homeowners reported noticeably reduced drafts and improved comfort levels immediately after installation.',
       details: 'The Woden property had single-glazed timber windows that were allowing significant heat loss, with the lounge room frequently dropping to uncomfortable temperatures overnight. We replaced all living area and bedroom glazing with 6-12-6 argon-filled units featuring a warm-edge spacer bar to minimise thermal bridging at the perimeter seal. Within the first week of Canberra\'s cold snap, the homeowners observed that their morning indoor temperature was consistently three to four degrees warmer than before, reducing their reliance on overnight heating and noticeably improving sleep quality.',
@@ -583,8 +634,7 @@ export const PROJECTS_CONTENT = {
       segment: 'Commercial',
       filters: ['low-e', 'energy-efficient', 'double-glazing'],
       location: 'Tuggeranong',
-      image:
-        'https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1600&q=80',
+      image: projectCommercialThree,
       slug: 'low-e-double-glazing-replacement',
       description: 'This energy-focused project centered on installing advanced Low-E coated glass that reflects heat while maintaining clarity. The upgrade delivers dual benefits of winter warmth retention and summer heat rejection. The homeowner now experiences optimal energy efficiency and reduced reliance on heating and cooling systems.',
       details: 'The north-facing living areas of this Tuggeranong home were experiencing significant solar heat gain in summer while losing warmth rapidly in winter — a classic challenge for Australian homes with large glazed openings. By specifying a high-performance Low-E coating on the inner pane, we created a glass assembly that selectively reflects long-wave infrared radiation, keeping interiors cooler in summer and warmer in winter. The homeowner has since reported a consistent indoor temperature range throughout the year and a marked reduction on their energy bills across all four seasons.',

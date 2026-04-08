@@ -88,12 +88,41 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* Lenis handles smooth scrolling — disable native to avoid conflicts */
   }
 
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+    }
+  }
+
+  /* GSAP autoAlpha requires elements start invisible to prevent flash */
+  .reveal,
+  .reveal-hero,
+  .reveal-stagger > *,
+  .reveal-clip,
+  .reveal-scale,
+  .reveal-slide-left,
+  .reveal-slide-right,
+  .reveal-fade,
+  .reveal-blur,
+  .reveal-word > span {
+    visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-hero,
+    .reveal-stagger > *,
+    .reveal-clip,
+    .reveal-scale,
+    .reveal-slide-left,
+    .reveal-slide-right,
+    .reveal-fade,
+    .reveal-blur,
+    .reveal-word > span {
+      visibility: visible;
     }
   }
 
@@ -320,5 +349,94 @@
   .type-caption {
     font-size: var(--text-caption);
     line-height: var(--leading-snug);
+  }
+}
+
+/* ============================================================
+   MICRO-INTERACTIONS & HOVER EFFECTS
+   ============================================================ */
+
+@layer utilities {
+  /* ── Card hover lift — subtle raise + shadow expansion ── */
+  .hover-lift {
+    transition: transform var(--duration-slow) var(--ease-out),
+                box-shadow var(--duration-slow) var(--ease-out);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -6px oklch(0 0 0 / 0.12), 0 6px 12px -4px oklch(0 0 0 / 0.08);
+  }
+
+  /* ── Image zoom on hover (parent must be overflow-hidden) ── */
+  .hover-zoom {
+    transition: transform var(--duration-slower) var(--ease-out);
+  }
+  .hover-zoom:hover {
+    transform: scale(1.04);
+  }
+
+  /* ── Button scale bump ── */
+  .hover-press {
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+  .hover-press:hover {
+    transform: scale(1.03);
+  }
+  .hover-press:active {
+    transform: scale(0.97);
+  }
+
+  /* ── Scroll progress bar ── */
+  .scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-400), var(--primary-700));
+    z-index: calc(var(--z-sticky-val) + 1);
+    pointer-events: none;
+    transition: none;
+  }
+
+  /* ── Noise texture overlay ── */
+  .noise-overlay::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  /* ── CTA animated gradient background ── */
+  .cta-gradient-animate {
+    background-size: 200% 200%;
+    animation: cta-gradient-shift 8s ease-in-out infinite;
+  }
+  @keyframes cta-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* ── Back-to-top button ── */
+  .back-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: var(--z-overlay-val);
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity var(--duration-slow) var(--ease-out),
+                transform var(--duration-slow) var(--ease-out);
+  }
+  .back-to-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }

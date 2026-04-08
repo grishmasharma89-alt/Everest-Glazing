@@ -61,8 +61,12 @@ export function ContactForm({ className }) {
         toast.success('Message sent! We\'ll be in touch shortly.')
         setFormData(INITIAL_FORM)
         formRef.current?.reset()
-      } catch {
-        toast.error('Something went wrong. Please try again or call us directly.')
+      } catch (error) {
+        if (error instanceof Error && error.message.includes('No form provider configured')) {
+          toast.error('Form is not configured yet. Add VITE_WEB3FORMS_ACCESS_KEY or VITE_FORMSPREE_ENDPOINT.')
+        } else {
+          toast.error('Something went wrong. Please try again or call us directly.')
+        }
       } finally {
         setIsSubmitting(false)
       }
@@ -77,18 +81,19 @@ export function ContactForm({ className }) {
       className={className}
       noValidate
     >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <FormField label="Name" required error={errors.name}>
+      <div className="grid gap-6 sm:grid-cols-2">
+        <FormField label="Name" required error={errors.name} labelClassName="text-lg sm:text-xl" errorClassName="text-base">
           <Input
             name="name"
             value={formData.name}
             onChange={handleChange}
             placeholder="Your full name"
             autoComplete="name"
+            className="h-14 text-lg placeholder:text-base sm:text-xl sm:placeholder:text-lg"
           />
         </FormField>
 
-        <FormField label="Email" required error={errors.email}>
+        <FormField label="Email" required error={errors.email} labelClassName="text-lg sm:text-xl" errorClassName="text-base">
           <Input
             name="email"
             type="email"
@@ -96,10 +101,11 @@ export function ContactForm({ className }) {
             onChange={handleChange}
             placeholder="you@example.com"
             autoComplete="email"
+            className="h-14 text-lg placeholder:text-base sm:text-xl sm:placeholder:text-lg"
           />
         </FormField>
 
-        <FormField label="Phone" required error={errors.phone}>
+        <FormField label="Phone" required error={errors.phone} labelClassName="text-lg sm:text-xl" errorClassName="text-base">
           <Input
             name="phone"
             type="tel"
@@ -107,11 +113,12 @@ export function ContactForm({ className }) {
             onChange={handleChange}
             placeholder="04XX XXX XXX"
             autoComplete="tel"
+            className="h-14 text-lg placeholder:text-base sm:text-xl sm:placeholder:text-lg"
           />
         </FormField>
 
-        <FormField label="Suburb">
-          <Select name="suburb" value={formData.suburb} onChange={handleChange}>
+        <FormField label="Suburb" labelClassName="text-lg sm:text-xl">
+          <Select name="suburb" value={formData.suburb} onChange={handleChange} className="h-14 text-lg sm:text-xl">
             <option value="">Select area</option>
             {SERVICE_AREAS.map((area) => (
               <option key={area} value={area}>{area}</option>
@@ -119,8 +126,8 @@ export function ContactForm({ className }) {
           </Select>
         </FormField>
 
-        <FormField label="Service" className="sm:col-span-2">
-          <Select name="service" value={formData.service} onChange={handleChange}>
+        <FormField label="Service" className="sm:col-span-2" labelClassName="text-lg sm:text-xl">
+          <Select name="service" value={formData.service} onChange={handleChange} className="h-14 text-lg sm:text-xl">
             <option value="">What do you need?</option>
             <option value="retrofit">Retrofit Double Glazing</option>
             <option value="secondary">Secondary Glazing</option>
@@ -129,18 +136,19 @@ export function ContactForm({ className }) {
           </Select>
         </FormField>
 
-        <FormField label="Message" required error={errors.message} className="sm:col-span-2">
+        <FormField label="Message" required error={errors.message} className="sm:col-span-2" labelClassName="text-lg sm:text-xl" errorClassName="text-base">
           <Textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="Write your message here..."
             rows={5}
+            className="text-lg placeholder:text-base sm:text-xl sm:placeholder:text-lg"
           />
         </FormField>
       </div>
 
-      <Button type="submit" size="lg" className="mt-6 w-full sm:w-auto" disabled={isSubmitting}>
+      <Button type="submit" size="lg" className="mt-7 h-14 w-full text-lg font-semibold sm:w-auto sm:px-8 sm:text-xl" disabled={isSubmitting}>
         {isSubmitting ? (
           <>
             <Spinner size="sm" /> Sending...

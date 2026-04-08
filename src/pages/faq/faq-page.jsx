@@ -5,16 +5,19 @@ import { Container } from '@/shared/components/ui/container'
 import { Heading } from '@/shared/components/ui/heading'
 import { Accordion } from '@/shared/components/ui/accordion'
 import { CTASection } from '@/shared/components/sections/cta-section'
+import { useScrollReveal } from '@/shared/hooks/use-scroll-reveal'
 
 export function FaqPage() {
+  const scopeRef = useScrollReveal()
   const { faqs } = FAQ_CONTENT
   const primaryPhoneHref = `tel:${COMPANY.phone.replace(/\s/g, '')}`
 
   return (
-    <>
+    <div ref={scopeRef}>
       <Section background="white" className="pt-28 sm:pt-32">
         <Container>
           <Heading
+            className="reveal-hero"
             label="FAQ"
             title="Frequently asked questions about retrofit double glazing"
             level="h1"
@@ -26,6 +29,7 @@ export function FaqPage() {
       <Section background="white" className="pt-0">
         <Container>
           <Accordion
+            className="reveal"
             items={faqs.map((faq) => ({ question: faq.q, answer: faq.a }))}
           />
         </Container>
@@ -38,6 +42,6 @@ export function FaqPage() {
         primaryCta={{ label: 'Contact Us', to: '/contact' }}
         secondaryCta={{ label: `Call ${COMPANY.phone}`, href: primaryPhoneHref }}
       />
-    </>
+    </div>
   )
 }
