@@ -13,9 +13,10 @@ export function TestimonialsSection({
   subtitle,
   testimonials = [],
   background = 'default',
+  ...props
 }) {
   return (
-    <Section background={background}>
+    <Section background={background} {...props}>
       <Container>
         <Heading label={label} title={title} subtitle={subtitle} />
         <div className="mt-8 grid gap-4 lg:mt-12 sm:grid-cols-2 lg:grid-cols-3">

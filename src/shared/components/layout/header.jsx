@@ -3,6 +3,7 @@ import { cn } from '@/shared/lib/utils'
 import { useEffect, useRef, useState } from 'react'
 import { HEADER_PRIMARY_LINKS } from '@/shared/data/site-content'
 import { COMPANY } from '@/shared/lib/constants'
+import logoImage from '@/shared/data/images/logo.jpeg'
 
 export function Header() {
   const { pathname } = useLocation()
@@ -68,11 +69,12 @@ export function Header() {
         )}
       >
         <div className="mx-auto flex w-full max-w-(--container-max) items-center justify-between gap-4">
-          <NavLink className="leading-(--leading-display) tracking-tight" onClick={handleLogoClick} to="/">
-            <p className="text-(length:--text-h4) font-semibold text-foreground">Everest</p>
-            <p className="text-(length:--text-caption) uppercase tracking-(--tracking-overline) text-foreground/60">Double Glazing</p>
+          {/* Left – Logo */}
+          <NavLink className="shrink-0" onClick={handleLogoClick} to="/">
+            <img src={logoImage} alt="Everest Double Glazing" className="h-10 w-auto" />
           </NavLink>
-          <nav className="hidden items-center gap-2 lg:flex">
+          {/* Center – Nav links (offset 12px right) */}
+          <nav className="hidden items-center gap-2 pl-3 lg:flex">
             {HEADER_PRIMARY_LINKS.map((link) => (
               <NavLink
                 className={({ isActive }) =>
@@ -92,28 +94,17 @@ export function Header() {
                 {link.label}
               </NavLink>
             ))}
-            <NavLink
-              className={cn(
-                'rounded-full border border-primary px-4 py-1.5 type-overline tracking-(--tracking-wide) text-primary transition',
-                'hover:bg-primary hover:text-white',
-              )}
-              onClick={() => {
-                setIsMobileMenuOpen(false)
-              }}
-              to="/contact"
-            >
-              Free Quote
-            </NavLink>
-            <a
-              className={cn(
-                'rounded-full border border-primary bg-primary px-4 py-1.5 type-overline tracking-(--tracking-wide) text-white transition',
-                'hover:bg-primary-700',
-              )}
-              href={primaryPhoneHref}
-            >
-              Call Now
-            </a>
           </nav>
+          {/* Right – Call Now */}
+          <a
+            className={cn(
+              'hidden shrink-0 animate-pulse-glow rounded-full border border-[#095702] bg-[#095702] px-4 py-1.5 type-overline tracking-(--tracking-wide) text-white transition lg:inline-flex',
+              'hover:bg-[#0b6a03]',
+            )}
+            href={primaryPhoneHref}
+          >
+            Call Now
+          </a>
           <button
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle navigation menu"
@@ -170,17 +161,8 @@ export function Header() {
               </NavLink>
             ))}
             <div className="mt-2 grid gap-2 border-t border-black/10 pt-2">
-              <NavLink
-                className="block rounded-md border border-primary px-3 py-2 type-overline tracking-(--tracking-wide) text-center text-primary transition hover:bg-primary hover:text-white"
-                onClick={() => {
-                  setIsMobileMenuOpen(false)
-                }}
-                to="/contact"
-              >
-                Get Free Quote
-              </NavLink>
               <a
-                className="block rounded-md border border-primary bg-primary px-3 py-2 type-overline tracking-(--tracking-wide) text-center text-white transition hover:bg-primary-700"
+                className="animate-pulse-glow block rounded-md border border-[#095702] bg-[#095702] px-3 py-2 type-overline tracking-(--tracking-wide) text-center text-white transition hover:bg-[#0b6a03]"
                 href={primaryPhoneHref}
                 onClick={() => {
                   setIsMobileMenuOpen(false)

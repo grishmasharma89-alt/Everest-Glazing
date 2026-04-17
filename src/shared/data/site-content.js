@@ -4,25 +4,30 @@ import heroSideShowroomImage from '@/shared/data/images/imgi_233_IMG_4258.jpg'
 import heroStatementImage from '@/shared/data/images/imgi_173_Double-glazed-window.jpg'
 import showcaseSpecialtyImage from '@/shared/data/images/imgi_188_667223738bf091ecb2c42305.webp'
 import doubleGlazeCategoryImage from '@/shared/data/images/doubleglaze.png'
-import vacuumGlassCategoryImage from '@/shared/data/images/vaccumglass.png'
+import vacuumGlassCategoryImage from '@/shared/data/images/Vaccum1.jpg'
 import projectBeforeImageOne from '@/shared/data/images/image1.png'
 import projectAfterImageOne from '@/shared/data/images/image2.png'
 import windowHeroPrimaryImage from '@/shared/data/images/window_hero1.jpg'
 import windowHeroSecondaryImage from '@/shared/data/images/window_hero2.jpg'
+import resTimber1Image from '@/shared/data/images/ResTimber1.jpg'
+import resTimber2Image from '@/shared/data/images/ResTimber2.jpg'
+import resAlm1Image from '@/shared/data/images/ResAlm1.jpg'
+import resAlm2Image from '@/shared/data/images/ResAlm2.jpg'
+import comAlm1Image from '@/shared/data/images/ComAlm.jpg'
+import comAlm2Image from '@/shared/data/images/ComAlm2.jpg'
+import comTimber1Image from '@/shared/data/images/ComTimber1.jpg'
+import comTimber2Image from '@/shared/data/images/ComTimber2.jpg'
 
 export const HEADER_PRIMARY_LINKS = [
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Category' },
+  { href: '/services', label: 'Categories' },
   { href: '/projects', label: 'Projects' },
   { href: '/contact', label: 'Contact' },
 ]
 
 export const HEADER_SECONDARY_LINKS = [
-  { href: '/how-it-works', label: 'How It Works' },
-  { href: '/why-choose-us', label: 'Why Choose Us' },
-  { href: '/reviews', label: 'Reviews' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/service-areas', label: 'Service Areas' },
+  { href: '/#reviews', label: 'Reviews' },
+  { href: '/#faq', label: 'FAQ' },
   { href: '/blog', label: 'Blog' },
 ]
 
@@ -78,14 +83,14 @@ export const HOME_CONTENT = {
     {
       title: 'Double Glazing',
       description:
-        'Two layers of glass with an insulated gap that helps reduce heat loss and outside noise.',
+        'Two planes of glass separated by a layer of gas that helps to enhance insulation, reduce energy consumption and improve comfort in buildings.',
       image: doubleGlazeCategoryImage,
       link: '/services',
     },
     {
       title: 'Vaccum Glass',
       description:
-        'Ultra-thin glass with a vacuum-sealed gap that delivers superior insulation and maximum energy efficiency.',
+        'An advanced type of double glazing works by creating a vacuum between two glass panels just like outer space.',
       image: vacuumGlassCategoryImage,
       link: '/services',
     },
@@ -176,18 +181,23 @@ export const HOME_CONTENT = {
   reviewItems: [
     {
       quote:
-        'The house stayed warmer through winter and street noise dropped immediately. The retrofit approach saved us from major replacement costs.',
-      person: 'Homeowner, Gungahlin',
+        'So happy with our experience with Everest Double Glazing. We have an early 70s house with a lot of glass in our lounge room and clerestory windows, and were very happy with the quoted price to retrofit double glazing in our timber frames.',
+      person: 'Katrina Phillips',
     },
     {
       quote:
-        'Quick measure, clear quote, and very clean install. We noticed lower heating usage within weeks.',
-      person: 'Homeowner, Belconnen',
+        'Fantastic service and quality! The double glazing made a huge difference straight away - warmer, quieter, and professionally installed. Highly recommend.',
+      person: 'Bree Marsh',
     },
     {
       quote:
-        'Professional team and great communication from start to finish. The upgraded windows look premium.',
-      person: 'Homeowner, Queanbeyan',
+        'Absolutely fantastic service from start to finish! The team was professional, friendly, and very knowledgeable about double glazing. The installation was completed on time with great attention to detail.',
+      person: 'Robert Quigg',
+    },
+    {
+      quote:
+        'After comparing multiple companies, this one clearly stood out for the quality of their glass. Much better insulation and finish than others. The team was professional, and offered great value for money.',
+      person: 'Maja Gjergjeska',
     },
   ],
   faqItems: [
@@ -199,19 +209,13 @@ export const HOME_CONTENT = {
     'What areas do you service?',
   ],
   serviceAreas: [
-    'Canberra',
-    'Queanbeyan',
-    'Googong',
-    'Gungahlin',
-    'Belconnen',
-    'Woden',
-    'Tuggeranong',
-    'Regional NSW',
+    'Queanbeyan & Canberra surroundings',
+    'Australian Capital Territory (ACT)',
   ],
   beforeAfterProjects: [
     {
       id: 'retrofit-living',
-      title: 'Canberra Retrofit Transformation',
+      title: 'Aluminuim Frame Transformation',
       subtitle: 'Before and After Preview',
       location: 'ACT Residential Upgrade',
       beforeImage: '/projects/before-after-01-before.jpg',
@@ -235,7 +239,7 @@ export const HOME_CONTENT = {
       id: 'aluminium-window-refresh',
       title: 'Aluminium Window Refresh',
       subtitle: 'Clean Modern Finish',
-      location: 'Belconnen Retrofit Project',
+      location: 'Canberra Retrofit Project',
       beforeImage: '/projects/before-after-03-before.jpg',
       afterImage: '/projects/before-after-03-after.jpg',
       fallbackBefore:
@@ -403,54 +407,32 @@ export const REVIEWS_CONTENT = {
   headlineReviews: [
     {
       quote:
-        'Noise from outside reduced significantly and winter heating feels more effective after the retrofit.',
-      person: 'Priya S. • Canberra',
-      profile: 'Homeowner',
-      avatar: 'https://i.pravatar.cc/120?img=47',
-      tag: 'Noise Reduction',
+        'So happy with our experience with Everest Double Glazing. We have an early 70s house with a lot of glass in our lounge room and clerestory windows, and were very happy with the quoted price to retrofit double glazing in our timber frames.',
+      person: 'Katrina Phillips',
+      profile: 'Google Review',
+      tag: 'Retrofit Glazing',
     },
     {
       quote:
-        'Professional team, clear communication, and clean installation. The home feels warmer immediately.',
-      person: 'James L. • Belconnen',
-      profile: 'Homeowner',
-      avatar: 'https://i.pravatar.cc/120?img=12',
-      tag: 'Winter Warmth',
+        'Absolutely fantastic service from start to finish! The team was professional, friendly, and very knowledgeable about double glazing. The installation was completed on time with great attention to detail.',
+      person: 'Robert Quigg',
+      profile: 'Google Review',
+      tag: 'Professional Service',
     },
     {
       quote:
-        'Excellent value compared to full window replacement. Great result and tidy finish.',
-      person: 'Mina T. • Queanbeyan',
-      profile: 'Homeowner',
-      avatar: 'https://i.pravatar.cc/120?img=32',
-      tag: 'Value and Finish',
+        'After comparing multiple companies, this one clearly stood out for the quality of their glass. Much better insulation and finish than others. The team was professional, and offered great value for money.',
+      person: 'Maja Gjergjeska',
+      profile: 'Google Review',
+      tag: 'Quality & Value',
     },
   ],
   supportReviews: [
     {
       quote:
-        'The retrofit process was straightforward and much less disruptive than we expected.',
-      person: 'Rohan K. • Gungahlin',
-      profile: 'Homeowner',
-      avatar: 'https://i.pravatar.cc/120?img=15',
-    },
-    {
-      quote: 'We noticed less condensation and better room comfort within days.',
-      person: 'Amelia R. • Woden',
-      profile: 'Homeowner',
-      avatar: 'https://i.pravatar.cc/120?img=5',
-    },
-    {
-      quote: 'The quote was clear and the installation was completed on schedule.',
-      person: 'Daniel P. • Tuggeranong',
-      profile: 'Homeowner',
-      avatar: 'https://i.pravatar.cc/120?img=21',
-    },
-    {
-      quote: 'Very happy with the result. The upgraded windows look premium and modern.',
-      person: 'Sara M. • ACT',
-      profile: 'Homeowner',
-      avatar: 'https://i.pravatar.cc/120?img=36',
+        'Fantastic service and quality! The double glazing made a huge difference straight away - warmer, quieter, and professionally installed. Highly recommend.',
+      person: 'Bree Marsh',
+      profile: 'Google Review',
     },
   ],
   reviewStats: [
@@ -518,76 +500,92 @@ export const PROJECTS_CONTENT = {
   ],
   projects: [
     {
-      title: 'Canberra Retrofit Transformation',
-      type: 'Before and After',
-      segment: 'Residential',
-      filters: ['retrofit', 'before-and-after', 'double-glazing'],
+      title: 'Commercial Aluminium Frame Gallery 1',
+      type: 'Aluminium Gallery',
+      segment: 'Commercial',
+      filters: ['aluminium'],
       location: 'Canberra',
-      image:
-        'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80',
-      slug: 'canberra-retrofit-transformation',
-      description: 'This comprehensive retrofit project demonstrates the dramatic impact of modern double glazing on an older home. The installation was completed with minimal disruption to the existing frame architecture, preserving the character of the original structure. The homeowners reported a 30% reduction in heating costs during the first winter season.',
-      details: 'Our team assessed the property over two days, taking precise measurements of every window opening before producing the custom insulated glass units off-site. The installation itself took just three days, with residents able to remain in the home throughout. Post-installation thermal imaging confirmed a dramatic reduction in cold-spot drafts along all treated frames, and the homeowners have since noted a quieter indoor environment due to the acoustic dampening properties of the new double-glazed units.',
+      image: comAlm1Image,
+      slug: 'commercial-aluminium-1',
+      description: 'Modern aluminium frame commercial retrofit delivering clean aesthetics and superior thermal performance.',
+      details: 'This commercial aluminium frame project demonstrates our capability to deliver high-performance glazing upgrades at scale.',
     },
     {
-      title: 'Timber Frame Upgrade',
-      type: 'Timber Upgrade',
+      title: 'Commercial Aluminium Frame Gallery 2',
+      type: 'Aluminium Gallery',
+      segment: 'Commercial',
+      filters: ['aluminium'],
+      location: 'Canberra',
+      image: comAlm2Image,
+      slug: 'commercial-aluminium-2',
+      description: 'Premium commercial aluminium frame installation with advanced Low-E glazing for year-round comfort.',
+      details: 'Our commercial aluminium retrofits combine contemporary design with proven thermal and acoustic performance.',
+    },
+    {
+      title: 'Commercial Timber Frame Gallery 1',
+      type: 'Timber Gallery',
+      segment: 'Commercial',
+      filters: ['timber'],
+      location: 'Canberra',
+      image: comTimber1Image,
+      slug: 'commercial-timber-1',
+      description: 'Commercial timber frame glazing upgrade preserving heritage character while meeting modern performance standards.',
+      details: 'This project showcases our expertise in working with timber frames in commercial settings without compromising structural integrity.',
+    },
+    {
+      title: 'Commercial Timber Frame Gallery 2',
+      type: 'Timber Gallery',
+      segment: 'Commercial',
+      filters: ['timber'],
+      location: 'Canberra',
+      image: comTimber2Image,
+      slug: 'commercial-timber-2',
+      description: 'Heritage commercial timber frame retrofit with precision-fitted double glazing for energy efficiency.',
+      details: 'Each commercial timber frame project is individually assessed to ensure the glazing upgrade complements the existing architecture.',
+    },
+    {
+      title: 'Residential Timber Frame Gallery 1',
+      type: 'Timber Gallery',
       segment: 'Residential',
-      filters: ['timber', 'retrofit', 'double-glazing'],
-      location: 'Queanbeyan',
-      image:
-        'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80',
-      slug: 'timber-frame-upgrade',
-      description: 'Our team successfully retrofitted heritage timber frames with high-performance double glazing units. The project required custom manufacturing to match the original frame dimensions while incorporating modern thermal performance. The result seamlessly blends historical aesthetics with contemporary comfort and energy efficiency.',
-      details: 'Preserving the integrity of the original 1960s timber joinery was a key priority for this project. We worked closely with the homeowner to source matching timber beading and used slim-profile insulated glass units that sit neatly within the existing rebate depth. The final result retains the warm, classic character of the original windows while delivering a thermal performance improvement that meets current Australian energy standards — a testament to what thoughtful retrofitting can achieve.',
+      filters: ['timber'],
+      location: 'Canberra',
+      image: resTimber1Image,
+      slug: 'residential-timber-1',
+      description: 'Timber frame retrofit project showcasing our expertise in preserving heritage aesthetics while delivering modern thermal performance.',
+      details: 'This timber frame renovation demonstrates our commitment to quality craftsmanship and attention to detail.',
     },
     {
-      title: 'Aluminium Window Refresh',
-      type: 'Aluminium Upgrade',
-      segment: 'Commercial',
-      filters: ['aluminium', 'low-e', 'retrofit'],
-      location: 'Belconnen',
-      image:
-        'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80',
-      slug: 'aluminium-window-refresh',
-      description: 'This aluminium frame installation showcases our expertise in contemporary window systems. We installed advanced Low-E glazing that maintains the sleek modern look while providing superior thermal insulation. The upgrade has significantly improved the home\'s climate control efficiency throughout the year.',
-      details: 'The existing aluminium frames were in excellent structural condition, making them ideal candidates for a glazing-only upgrade rather than full frame replacement — a more cost-effective and less disruptive approach. New thermally broken gaskets were fitted alongside the Low-E units to eliminate condensation on the inner pane, a common issue in Canberra\'s cold winters. The homeowner reported that their ducted heating system now cycles far less frequently, providing measurable savings on quarterly energy bills.',
-    },
-    {
-      title: 'Frosted Privacy Glass Installation',
-      type: 'Frosted Glass',
-      segment: 'Commercial',
-      filters: ['frosted', 'privacy', 'acoustic'],
-      location: 'Gungahlin',
-      image:
-        'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1600&q=80',
-      slug: 'frosted-privacy-glass-installation',
-      description: 'This project featured specialized frosted glass for enhanced privacy in sensitive areas. Our team combined aesthetic frosting patterns with acoustic glass technology to create functional and stylish boundaries. The homeowner now enjoys increased privacy without compromising natural light or thermal performance.',
-      details: 'The bathroom and ensuite windows of this Gungahlin property faced a neighbouring property with minimal setback, making privacy glass an essential rather than optional upgrade. We specified a satin acid-etch pattern applied to the inner pane of a double-glazed unit, which diffuses vision while still transmitting excellent natural light throughout the day. The result is a bathroom that feels open and bright without any compromise on personal privacy, and the thermal performance of the double-glazed unit provides an added benefit during the colder months.',
-    },
-    {
-      title: 'Winter Warmth Retrofit',
-      type: 'Comfort Upgrade',
+      title: 'Residential Timber Frame Gallery 2',
+      type: 'Timber Gallery',
       segment: 'Residential',
-      filters: ['timber', 'retrofit', 'argon-filled'],
-      location: 'Woden',
-      image:
-        'https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=1600&q=80',
-      slug: 'winter-warmth-retrofit',
-      description: 'Designed specifically to combat Canberra\'s harsh winters, this retrofitting project prioritized thermal retention and comfort. We installed premium argon-filled insulated glass units that maintain steady indoor temperatures throughout cold months. The homeowners reported noticeably reduced drafts and improved comfort levels immediately after installation.',
-      details: 'The Woden property had single-glazed timber windows that were allowing significant heat loss, with the lounge room frequently dropping to uncomfortable temperatures overnight. We replaced all living area and bedroom glazing with 6-12-6 argon-filled units featuring a warm-edge spacer bar to minimise thermal bridging at the perimeter seal. Within the first week of Canberra\'s cold snap, the homeowners observed that their morning indoor temperature was consistently three to four degrees warmer than before, reducing their reliance on overnight heating and noticeably improving sleep quality.',
+      filters: ['timber'],
+      location: 'Canberra',
+      image: resTimber2Image,
+      slug: 'residential-timber-2',
+      description: 'Another exceptional timber frame retrofit showcasing our specialized expertise in heritage frame upgrades.',
+      details: 'Each timber frame project is carefully tailored to preserve the original character while improving energy efficiency.',
     },
     {
-      title: 'Low-E Double Glazing Replacement',
-      type: 'Energy Efficiency',
-      segment: 'Commercial',
-      filters: ['low-e', 'energy-efficient', 'double-glazing'],
-      location: 'Tuggeranong',
-      image:
-        'https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1600&q=80',
-      slug: 'low-e-double-glazing-replacement',
-      description: 'This energy-focused project centered on installing advanced Low-E coated glass that reflects heat while maintaining clarity. The upgrade delivers dual benefits of winter warmth retention and summer heat rejection. The homeowner now experiences optimal energy efficiency and reduced reliance on heating and cooling systems.',
-      details: 'The north-facing living areas of this Tuggeranong home were experiencing significant solar heat gain in summer while losing warmth rapidly in winter — a classic challenge for Australian homes with large glazed openings. By specifying a high-performance Low-E coating on the inner pane, we created a glass assembly that selectively reflects long-wave infrared radiation, keeping interiors cooler in summer and warmer in winter. The homeowner has since reported a consistent indoor temperature range throughout the year and a marked reduction on their energy bills across all four seasons.',
+      title: 'Residential Aluminium Frame Gallery 1',
+      type: 'Aluminium Gallery',
+      segment: 'Residential',
+      filters: ['aluminium'],
+      location: 'Canberra',
+      image: resAlm1Image,
+      slug: 'residential-aluminium-1',
+      description: 'Modern aluminium frame retrofit providing contemporary aesthetics with superior thermal control.',
+      details: 'Aluminium frame upgrades deliver sleek, modern lines with exceptional performance and durability.',
+    },
+    {
+      title: 'Residential Aluminium Frame Gallery 2',
+      type: 'Aluminium Gallery',
+      segment: 'Residential',
+      filters: ['aluminium'],
+      location: 'Canberra',
+      image: resAlm2Image,
+      slug: 'residential-aluminium-2',
+      description: 'Premium aluminium frame installation showcasing clean modern design and high-performance glazing integration.',
+      details: 'Our aluminium frame retrofits combine contemporary design principles with proven thermal performance benefits.',
     },
   ],
 }

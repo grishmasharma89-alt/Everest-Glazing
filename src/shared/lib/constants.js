@@ -35,12 +35,9 @@ export const TRUST_BADGES = [
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
+  { href: '/services', label: 'Categories' },
   { href: '/projects', label: 'Projects' },
-  { href: '/how-it-works', label: 'How It Works' },
-  { href: '/why-choose-us', label: 'Why Choose Us' },
-  { href: '/reviews', label: 'Reviews' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/service-areas', label: 'Service Areas' },
+  { href: '/#reviews', label: 'Reviews' },
+  { href: '/#faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ]

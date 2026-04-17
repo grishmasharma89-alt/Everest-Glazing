@@ -26,8 +26,8 @@ export function CardShell({
 }
 
 const variantMap = {
-  default: 'border border-border bg-white p-6',
-  ghost: 'p-6',
-  dark: 'border border-white/12 bg-white/5 p-6 text-white',
-  flat: 'bg-secondary p-6',
+  default: 'border border-border bg-white p-[calc(1.5rem*0.95)]',
+  ghost: 'p-[calc(1.5rem*0.95)]',
+  dark: 'border border-white/12 bg-white/5 p-[calc(1.5rem*0.95)] text-white',
+  flat: 'bg-secondary p-[calc(1.5rem*0.95)]',
 }

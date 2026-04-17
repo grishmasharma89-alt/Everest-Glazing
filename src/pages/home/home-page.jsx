@@ -11,6 +11,7 @@ import { TestimonialsSection } from '@/shared/components/sections/testimonials-s
 import { Accordion } from '@/shared/components/ui/accordion'
 import { CTASection } from '@/shared/components/sections/cta-section'
 import { LinkButton } from '@/shared/components/ui/link-button'
+import heroVideo from '@/shared/data/images/0416.mp4'
 
 function BeforeAfterCard({ title, location, beforeImage, afterImage }) {
   const [sliderPosition, setSliderPosition] = useState(50)
@@ -160,10 +161,15 @@ export function HomePage() {
     <div ref={pageRef}>
       <Section spacing="none" className="bg-white pb-14 pt-0">
         <div className="home-hero-shell relative overflow-hidden bg-surface-dark min-h-[88vh] sm:min-h-[96vh]">
-          <div
-            className="home-hero-bg absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `linear-gradient(90deg, rgba(8,18,33,0.86) 0%, rgba(8,18,33,0.68) 38%, rgba(8,18,33,0.38) 64%, rgba(8,18,33,0.42) 100%), url(${editorialHero.backgroundImage})` }}
+          <video
+            className="home-hero-bg absolute inset-0 h-full w-full object-cover"
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(8,18,33,0.88)] via-[rgba(8,18,33,0.72)] to-[rgba(8,18,33,0.48)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(70,161,194,0.18),transparent_28%),radial-gradient(circle_at_18%_80%,rgba(255,255,255,0.06),transparent_24%)]" />
 
           <Container className="relative flex min-h-[88vh] items-end pb-10 pt-28 sm:min-h-[96vh] sm:pb-12 sm:pt-32 lg:pb-14 lg:pt-36">
@@ -205,7 +211,7 @@ export function HomePage() {
         <Container>
           <div className="mx-auto max-w-[calc(var(--container-max)*0.9)]">
             <div className="service-section-reveal text-center">
-              <p className="type-overline text-primary">Category</p>
+              <p className="type-overline text-primary">Categories</p>
               <h2 className="mt-3 type-h2 text-foreground">Choose the right glass for your space</h2>
               <p className="mx-auto mt-4 max-w-3xl type-body sm:text-[length:var(--text-body-lg)] text-foreground/[var(--opacity-muted)]">
                From reliable double glazing to high-performance vacuum glass, we provide solutions that improve insulation, reduce noise, and increase energy efficiency.
@@ -275,6 +281,7 @@ export function HomePage() {
       </Section>
 
       <TestimonialsSection
+        id="reviews"
         label="Reviews"
         title="What clients say after retrofit upgrades"
         testimonials={reviewItems.map((item) => ({
@@ -293,7 +300,7 @@ export function HomePage() {
         secondaryCta={{ label: `Call ${COMPANY.phone}`, href: primaryPhoneHref }}
       />
 
-      <Section background="white">
+      <Section id="faq" background="white">
         <Container>
           <Heading
             label="FAQ"

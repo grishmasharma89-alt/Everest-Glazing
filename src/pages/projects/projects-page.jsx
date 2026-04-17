@@ -5,6 +5,8 @@ import { Section } from '@/shared/components/ui/section'
 import { Container } from '@/shared/components/ui/container'
 import { OptimizedImage } from '@/shared/components/common/optimized-image'
 import { Button } from '@/shared/components/ui/button'
+import commercialImg from '@/shared/data/images/commercial.jpg'
+import residentialImg from '@/shared/data/images/rresidential.jpg'
 
 const ProjectGalleryItem = memo(function ProjectGalleryItem({ title, image, slug }) {
   return (
@@ -29,7 +31,7 @@ const ProjectGalleryItem = memo(function ProjectGalleryItem({ title, image, slug
           </div>
         </div>
       </div>
-      <h3 className="text-center text-[length:var(--text-body)] font-semibold">{title}</h3>
+      <h3 className="text-center text-(length:--text-body) font-semibold">{title}</h3>
     </Link>
   )
 })
@@ -42,21 +44,27 @@ const formatFilterLabel = (value) =>
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ')
 
-const SegmentCard = memo(function SegmentCard({ title, description, count, onClick }) {
+const SegmentCard = memo(function SegmentCard({ title, description, image, onClick }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="group rounded-2xl border border-border bg-white p-8 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"
+      className="group overflow-hidden rounded-2xl border border-border bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"
     >
-      <p className="text-[length:var(--text-overline)] font-semibold tracking-widest text-primary">PROJECT TYPE</p>
-      <h2 className="mt-3 text-3xl font-bold text-foreground transition-colors group-hover:text-primary md:text-4xl">
-        {title}
-      </h2>
-      <p className="mt-4 text-[length:var(--text-body)] text-foreground/[var(--opacity-secondary)]">{description}</p>
-      <p className="mt-6 inline-flex rounded-full bg-secondary px-4 py-1.5 text-sm font-semibold text-foreground/80">
-        {count} projects
-      </p>
+      <div className="overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="p-6">
+        <p className="text-(length:--text-overline) font-semibold tracking-widest text-primary">PROJECT TYPE</p>
+        <h2 className="mt-3 text-3xl font-bold text-foreground transition-colors group-hover:text-primary md:text-4xl">
+          {title}
+        </h2>
+        <p className="mt-3 text-(length:--text-body) text-foreground/(--opacity-secondary)">{description}</p>
+      </div>
     </button>
   )
 })
@@ -127,25 +135,25 @@ export function ProjectsPage() {
     <Section background="white" className="pt-24 md:pt-28">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-[length:var(--text-overline)] font-semibold tracking-widest text-primary">OUR PROJECTS</p>
+          <p className="text-(length:--text-overline) font-semibold tracking-widest text-primary">OUR PROJECTS</p>
           <h1 className="mt-4 text-5xl font-bold md:text-6xl">Projects and Gallery</h1>
-          <p className="mt-6 text-[length:var(--text-body-lg)] text-foreground/[var(--opacity-secondary)]">
+          <p className="mt-6 text-(length:--text-body-lg) text-foreground/(--opacity-secondary)">
             Start by choosing a project type, then refine the gallery using filters like timber, low-e, and more.
           </p>
         </div>
 
         {!selectedSegment && (
-          <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2">
+          <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2" style={{ zoom: '0.95' }}>
             <SegmentCard
               title="Commercial"
               description="Offices, storefronts, and business spaces focused on comfort and performance."
-              count={projectsBySegment.Commercial?.length ?? 0}
+              image={commercialImg}
               onClick={() => handleSegmentSelect('Commercial')}
             />
             <SegmentCard
               title="Residential"
               description="Homes and living spaces where warmth, noise control, and style all matter."
-              count={projectsBySegment.Residential?.length ?? 0}
+              image={residentialImg}
               onClick={() => handleSegmentSelect('Residential')}
             />
           </div>
@@ -155,7 +163,7 @@ export function ProjectsPage() {
           <>
             <div className="mt-12 flex flex-col gap-4 rounded-xl border border-border bg-secondary/30 p-5 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-[length:var(--text-overline)] font-semibold tracking-widest text-primary">SELECTED TYPE</p>
+                <p className="text-(length:--text-overline) font-semibold tracking-widest text-primary">SELECTED TYPE</p>
                 <h2 className="mt-2 text-2xl font-bold md:text-3xl">{selectedSegment} Projects</h2>
               </div>
               <Button variant="outline" size="sm" onClick={handleBackToSegments}>
@@ -207,7 +215,7 @@ export function ProjectsPage() {
               </div>
             ) : (
               <div className="mt-10 rounded-xl border border-dashed border-border bg-secondary/20 p-10 text-center">
-                <p className="text-[length:var(--text-body)] text-foreground/70">
+                <p className="text-(length:--text-body) text-foreground/70">
                   No projects match the selected filters. Try removing one or more filters.
                 </p>
               </div>
